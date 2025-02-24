@@ -1,6 +1,7 @@
 export const guests = [
   {
     Guest_Name: "Vợ chồng a Nhật Châu",
+    id: 1,
     Guest_Code: "ABCE",
     Friend: "Bride",
     Invite_Side: "Groom",
@@ -17,6 +18,7 @@ export const guests = [
   },
   {
     Guest_Name: "Vợ chồng bạn Thảo",
+    id: 2,
     Guest_Code: "ABCD",
     Friend: "Bride",
     Invite_Side: "Bride",
@@ -33,6 +35,7 @@ export const guests = [
   },
   {
     Guest_Name: "Vợ chồng bạn Lĩnh",
+    id: 3,
     Guest_Code: "ABCF",
     Friend: "Groom",
     Invite_Side: "Groom",
@@ -49,6 +52,7 @@ export const guests = [
   },
   {
     Guest_Name: "Duy",
+    id: 4,
     Guest_Code: "ACDD",
     Friend: "Groom",
     Invite_Side: "Bride",

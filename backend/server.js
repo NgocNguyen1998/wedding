@@ -36,6 +36,7 @@ app.get("/api/message", (req, res) => {
 app.post("/api/confirmInvitation", async (req, res) => {
   const {
     name,
+    id,
     phone,
     group,
     numberOfPeople,
@@ -68,6 +69,7 @@ app.post("/api/confirmInvitation", async (req, res) => {
       // If the RSVP does not exist, create a new one
       const newRSVP = new confirmInvitation({
         name,
+        id,
         phone,
         group,
         numberOfPeople,

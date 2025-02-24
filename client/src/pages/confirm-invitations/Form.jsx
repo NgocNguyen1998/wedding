@@ -72,6 +72,7 @@ const Form = () => {
 
   const [formData, setFormData] = useState({
     name: guest?.Guest_Name || "",
+    id: guest?.id || "",
     phone: "",
     group:
       guest?.Friend === "Groom" ? "Groom's Friend" : "Bride's Friend" || "",
@@ -86,6 +87,7 @@ const Form = () => {
       setFormData((prev) => ({
         ...prev,
         name: guestData.name || prev.name,
+        id: prev.id,
         phone: guestData.phone || prev.phone,
         numberOfPeople: guestData.numberOfPeople || prev.numberOfPeople,
         attendingDinner:
@@ -104,11 +106,16 @@ const Form = () => {
         setFormData((prev) => ({
           ...prev,
           attendingDinner: [{ title: "None" }], // Chỉ giữ lại "None"
+          attending: "no",
+          departure_time: "",
+          returning_time: "",
+          numberOfPeople: 0,
         }));
       } else {
         setFormData((prev) => ({
           ...prev,
           attendingDinner: newValue, // Cập nhật danh sách đã chọn
+          attending: "yes",
         }));
       }
       return;
@@ -165,11 +172,11 @@ const Form = () => {
       }));
       return; // Don't proceed with the default behavior
     }
+
     if (
       (name === "departure_time" && value !== "") ||
       (name === "returning_time" && value !== "") ||
-      (name === "numberOfPeople" && value > 0) ||
-      (name === "attendingDinner" && value.length > 0)
+      (name === "numberOfPeople" && value > 0)
     ) {
       setFormData((prev) => ({
         ...prev,
@@ -213,6 +220,7 @@ const Form = () => {
     const dataToSend = {
       ...formData,
       numberOfPeople: Number(formData.numberOfPeople),
+      id: guest.id,
     };
 
     try {

@@ -35,6 +35,9 @@ const confirmInvitationSchema = new mongoose.Schema(
     returning_time: {
       type: String,
     },
+    id: {
+      type: Number,
+    },
   },
   {
     timestamps: true,
