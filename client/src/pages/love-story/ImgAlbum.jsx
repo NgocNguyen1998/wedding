@@ -1,10 +1,8 @@
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import ImgList from "./ImgList";
 import Gallery from "./Gallery";
 
 const ImgAlbum = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Box
       sx={{
@@ -27,12 +25,16 @@ const ImgAlbum = () => {
     >
       <Typography
         sx={{
-          fontSize: isMobile ? "31px" : "40px",
-          color: "#8D644D",
-          fontWeight: "bold",
           //fontSize: "45px",
-          fontFamily: "EB Garamond, serif",
+
           paddingBottom: 2,
+          fontStyle: "italic",
+          fontWeight: "bold",
+          textShadow: "1px 1px 2px rgba(242, 12, 12, 0.3)",
+          letterSpacing: 1,
+          fontSize: "35px",
+          fontFamily: "EB Garamond, serif",
+          color: "#8D644D",
         }}
       >
         Together, Forever

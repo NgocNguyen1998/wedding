@@ -56,8 +56,25 @@ const ConfirmInvitations = () => {
 
     document.addEventListener("click", handleUserInteraction);
 
+    // Listen for visibility change to pause/resume the music
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        // Pause the music when the app goes into the background
+        audioRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        // Resume the music when the app comes back to the foreground
+        if (audioRef.current.currentTime === 0) {
+          audioRef.current.currentTime = 19; // Đảm bảo nhạc phát từ giây thứ 19 nếu nó mới bắt đầu
+        }
+        audioRef.current.play(); // Tiếp tục phát nhạc khi app trở lại foreground
+        setIsPlaying(true); // Cập nhật trạng thái nhạc đang phát
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     return () => {
-      document.removeEventListener("click", handleUserInteraction);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
     };
   }, []);
 

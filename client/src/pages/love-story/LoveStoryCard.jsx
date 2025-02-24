@@ -96,14 +96,16 @@ const LoveStoryCard = ({ imgDate, imgMain, text }) => {
             // borderRadius: "8px",
             position: "absolute",
             bottom: "0px",
+            top: "60%",
             width: isMobile ? "80%" : "85%",
+            height: isMobile ? "100px" : "100%",
             textAlign: "center",
             border: "none",
           }}
         >
           <Typography
             sx={{
-              fontSize: isMobile ? "14px" : "15px",
+              fontSize: isMobile ? "14px" : "1vw",
               color: "#557c70",
               fontFamily: "EB Garamond, serif",
             }}

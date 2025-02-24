@@ -20,11 +20,15 @@ const OurStory = (props) => {
       <Typography
         sx={{
           textAlign: "center",
-          color: "#8D644D",
-          fontWeight: "bold",
-          fontSize: isMobile ? "31px" : "40px",
-          fontFamily: "EB Garamond, serif",
+
           position: "relative",
+          fontStyle: "italic",
+          fontWeight: "bold",
+          textShadow: "1px 1px 2px rgba(242, 12, 12, 0.3)",
+          letterSpacing: 1,
+          fontSize: "35px",
+          fontFamily: "EB Garamond, serif",
+          color: "#8D644D",
         }}
       >
         Our Story
@@ -44,6 +48,9 @@ const OurStory = (props) => {
               color: "#498863",
               textTransform: "uppercase",
               fontFamily: "EB Garamond, serif",
+              fontStyle: "normal",
+              fontWeight: "300",
+              textShadow: "0px 00px 0px rgba(242, 12, 12, 0.3)",
             }}
           >
             Girl meets Boy
@@ -55,6 +62,9 @@ const OurStory = (props) => {
               color: "#498863",
               textTransform: "uppercase",
               fontFamily: "EB Garamond, serif",
+              fontStyle: "normal",
+              fontWeight: "300",
+              textShadow: "0px 00px 0px rgba(242, 12, 12, 0.3)",
             }}
           >
             Boy falls for Girl.

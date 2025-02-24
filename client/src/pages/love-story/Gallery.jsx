@@ -8,7 +8,7 @@ import lgZoom from "lightgallery/plugins/zoom";
 import lgThumbnail from "lightgallery/plugins/thumbnail";
 
 // MUI Components
-import { Button, Box } from "@mui/material";
+import { Button, Box, useMediaQuery, useTheme } from "@mui/material";
 
 const imageList = [
   {
@@ -36,10 +36,11 @@ const Gallery = () => {
       firstImageRef.current.click();
     }
   }, [showGallery]);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  const handleCloseGallery = () => {
-    setShowGallery(false);
-  };
+  /*************  ✨ Codeium Command 🌟  *************/
+  const handleCloseGallery = () => setShowGallery(false);
 
   return (
     <Box>
@@ -60,7 +61,7 @@ const Gallery = () => {
             border: "1px solid #f6ecec",
             borderRadius: "4px",
             padding: "7px 18px",
-            fontSize: "20px",
+            fontSize: isMobile ? "15px" : "20px",
           }}
         >
           View more

@@ -4,25 +4,37 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Box, Typography } from "@mui/material";
 
-// Tách SlideItem ra ngoài
-const SlideItem = ({ imgSrc, isMobile }) => (
+// Hàm lấy kích thước viewport chính xác
+const getViewportSize = () => {
+  const width = document.documentElement.clientWidth;
+  const height = window.visualViewport?.height || window.innerHeight;
+
+  // Đảm bảo tỷ lệ 16:9 trên màn hình lớn
+  const aspectRatioHeight = (width / 16) * 9;
+  return {
+    width: width,
+    height: width > 1024 ? Math.min(height, aspectRatioHeight) : height,
+  };
+};
+
+// Component SlideItem
+const SlideItem = ({ imgSrc, isMobile, scaleFactor, viewportSize }) => (
   <div
     style={{
       position: "relative",
       overflow: "hidden",
-      height: "100vh",
-      width: "100vw",
+      height: `${viewportSize.height}px`,
+      width: `${viewportSize.width}px`,
     }}
   >
     <img
       src={imgSrc}
       alt="Slide"
       style={{
-        width: isMobile ? "117vw" : "100vw",
-        height: "100vh",
+        width: "100%",
+        height: `${viewportSize.height}px`,
         objectFit: "cover",
         objectPosition: "center",
-        overflow: "hidden",
       }}
     />
     {/* Lớp phủ blur */}
@@ -31,31 +43,36 @@ const SlideItem = ({ imgSrc, isMobile }) => (
         position: "absolute",
         top: 0,
         left: 0,
-        width: isMobile ? "130vw" : "100vw",
-        height: "100vh",
-        backgroundColor: "rgba(0, 0, 0, 0.2)",
+        width: isMobile ? "100%" : "100%",
+        height: `${viewportSize.height}px`,
+        backgroundColor: "rgba(0, 0, 0, 0.3)",
         zIndex: 1,
       }}
     />
     {/* Nội dung chính */}
     <Box
       sx={{
-        width: isMobile ? "100%" : "50%",
+        width: isMobile ? "130%" : "150%", // Tự động thay đổi khi xoay
+        maxWidth: "none",
         position: "absolute",
         top: "50%",
-        left: isMobile ? "50%" : "50%",
-        transform: "translate(-50%, -50%)",
-        color: "#fe6688",
-        fontWeight: "bold",
-        fontStyle: "italic",
+        left: "50%",
+        transform: `translate(-50%, -50%) scale(${scaleFactor})`,
+        color: "#e16993",
+        textAlign: "center",
+        overflow: "visible",
+        whiteSpace: "nowrap",
+        zIndex: 2,
       }}
     >
       <Typography
         sx={{
-          fontSize: isMobile ? "55px" : "10rem",
-          letterSpacing: "1px",
+          fontSize: isMobile
+            ? "clamp(15px, 30vw, 100px)"
+            : "clamp(25px, 50vw, 100px)",
+          letterSpacing: "2px",
           textAlign: "center",
-          textShadow: "1px 1px 2px rgba(255, 255, 255, 0.978)",
+          textShadow: "1px 1px 2px rgb(255, 255, 255)",
           fontFamily: "'Mr De Haviland', cursive",
           display: "flex",
           flexDirection: isMobile ? "column" : "row",
@@ -70,16 +87,25 @@ const SlideItem = ({ imgSrc, isMobile }) => (
       </Typography>
       <Typography
         sx={{
-          fontSize: isMobile ? "20px" : "2rem",
+          fontSize: isMobile
+            ? "clamp(10px, 4vh, 40px)"
+            : "clamp(15px, 8vh, 30px)",
           letterSpacing: "1px",
           textAlign: "center",
-          paddingTop: 3,
-          color: "#e8b2e6",
+          paddingTop: 5,
+          color: "#ffffff",
           fontFamily: "'Oooh Baby', cursive",
-          filter: "brightness(1.1) contrast(1.2)",
-          textShadow: "1px 1px 2px #4e4d4d",
-          width: isMobile ? "90%" : "100%",
+          filter: "brightness(1) contrast(1.5)",
+          textShadow: "1px 1px 1px #000000",
+          width: isMobile ? "100%" : "50%", // Đảm bảo không quá rộng
+
           margin: "0 auto",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexWrap: "wrap", // Cho phép xuống dòng nếu không đủ chỗ
+          wordBreak: "break-word", // Nếu có từ quá dài, sẽ tự cắt xuống dòng
+          whiteSpace: "normal", // Đảm bảo xuống dòng khi cần
         }}
       >
         Between the intersections of time and destiny, we find each other—not as
@@ -90,17 +116,19 @@ const SlideItem = ({ imgSrc, isMobile }) => (
     <Box
       sx={{
         position: "absolute",
-        bottom: "10%",
-        right: isMobile ? "-35%" : "1.75%",
+        bottom: isMobile ? "7.5%" : "7.5%",
+        right: isMobile ? "-5%" : "1.75%",
         transform: "translateX(-50%)",
         fontStyle: "italic",
       }}
     >
-      {["Save", "the", "Date"].map((text) => (
+      {["Save", "the Date"].map((text) => (
         <Typography
           key={text}
           sx={{
-            fontSize: isMobile ? "25px" : "3rem",
+            fontSize: isMobile
+              ? "clamp(10px, 2vh, 40px)"
+              : "clamp(10px, 4vh, 30px)",
             letterSpacing: "1px",
             textAlign: "center",
             fontWeight: "bold",
@@ -117,26 +145,36 @@ const SlideItem = ({ imgSrc, isMobile }) => (
 );
 
 const Carousel = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [viewportSize, setViewportSize] = useState(getViewportSize());
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
   useEffect(() => {
-    const checkMobile = () => {
+    const updateViewportSize = () => {
+      setViewportSize(getViewportSize());
       setIsMobile(window.innerWidth < 768);
     };
 
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
+    window.addEventListener("resize", updateViewportSize);
+    window.addEventListener("orientationchange", updateViewportSize);
+
     return () => {
-      window.removeEventListener("resize", checkMobile);
+      window.removeEventListener("resize", updateViewportSize);
+      window.removeEventListener("orientationchange", updateViewportSize);
     };
   }, []);
+
+  // Tính toán scaleFactor để điều chỉnh kích thước chữ theo màn hình
+  const scaleFactor = Math.min(
+    viewportSize.width / (isMobile ? 720 : 1280),
+    viewportSize.height / (isMobile ? 1280 : 720)
+  );
 
   const settings = {
     dots: true,
     infinite: true,
-    // autoplay: true,
     autoplaySpeed: 4000,
-    pauseOnHover: true,
+    // pauseOnHover: true,
+    autoplay: true,
     speed: 800,
     fade: true,
     cssEase: "ease-out",
@@ -166,7 +204,7 @@ const Carousel = () => {
     <Box
       sx={{
         width: "100%",
-        height: "100vh",
+        height: `${viewportSize.height}px`,
         position: "relative",
         overflow: "hidden",
       }}
@@ -177,7 +215,13 @@ const Carousel = () => {
           "/imgs/DSC00459.webp",
           "/imgs/DSC00743.webp",
         ].map((img, index) => (
-          <SlideItem key={index} imgSrc={img} isMobile={isMobile} />
+          <SlideItem
+            key={index}
+            imgSrc={img}
+            isMobile={isMobile}
+            scaleFactor={scaleFactor}
+            viewportSize={viewportSize}
+          />
         ))}
       </Slider>
       <style>
