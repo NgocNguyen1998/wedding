@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
   Box,
@@ -28,7 +28,6 @@ import {
   return_timeData,
 } from "../../models/data";
 const apiUrl = process.env.REACT_APP_API_URL || "http://localhost:5003/api"; // Sử dụng URL từ file .env nếu có
-console.log("API URL:", apiUrl);
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 const Form = () => {
@@ -37,9 +36,40 @@ const Form = () => {
   const lowerName = name?.toLowerCase();
   // Kiểm tra xem khách có trong danh sách không
   const guest = guests.find((g) => g.Guest_Code.toLowerCase() === lowerName);
+  const [guestData, setGuestData] = useState("");
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [err, setErr] = useState("");
+
+  useEffect(() => {
+    if (!guest || !guest.Guest_Name) return; // Nếu không có guest, không gọi API
+
+    async function fetchGuestData() {
+      try {
+        const encodedName = encodeURIComponent(guest.Guest_Name);
+        const apiUrlWithParams = `${apiUrl}/getInvitation/${encodedName}`;
+
+        const response = await axios.get(apiUrlWithParams);
+
+        if (response.data?.data) {
+          setGuestData(response.data.data);
+        } else {
+          console.warn("⚠️ API không có dữ liệu hợp lệ:", response.data);
+        }
+      } catch (error) {
+        if (error.response?.status === 404) {
+          console.warn(
+            "⚠️ Không tìm thấy dữ liệu, giữ nguyên dữ liệu hiện tại."
+          );
+        } else {
+          console.error("❌ Lỗi khi gọi API:", error);
+        }
+      }
+    }
+
+    fetchGuestData();
+  }, [guest]);
+
   const [formData, setFormData] = useState({
     name: guest?.Guest_Name || "",
     phone: "",
@@ -51,7 +81,22 @@ const Form = () => {
     departure_time: "",
     returning_time: "",
   });
-
+  useEffect(() => {
+    if (guestData) {
+      setFormData((prev) => ({
+        ...prev,
+        name: guestData.name || prev.name,
+        phone: guestData.phone || prev.phone,
+        numberOfPeople: guestData.numberOfPeople || prev.numberOfPeople,
+        attendingDinner:
+          guestData.attendingDinner.map((option) => option) ||
+          prev.attendingDinner,
+        attending: guestData.attending || prev.attending,
+        departure_time: guestData.departure_time || prev.departure_time,
+        returning_time: guestData.returning_time || prev.returning_time,
+      }));
+    }
+  }, [guestData]);
   const handleChange = (e, newValue) => {
     if (Array.isArray(newValue)) {
       // Nếu đang thay đổi trong Autocomplete (chọn nhiều mục)
@@ -79,6 +124,15 @@ const Form = () => {
         newValue1 = value;
       } else {
         return;
+      }
+      if (Number(value) === 0) {
+        setFormData((prev) => ({
+          ...prev,
+          attending: "no",
+          attendingDinner: [{ title: "None" }],
+          departure_time: "",
+          returning_time: "",
+        }));
       }
     }
     if (name === "phone") {
@@ -111,6 +165,17 @@ const Form = () => {
       }));
       return; // Don't proceed with the default behavior
     }
+    if (
+      (name === "departure_time" && value !== "") ||
+      (name === "returning_time" && value !== "") ||
+      (name === "numberOfPeople" && value > 0) ||
+      (name === "attendingDinner" && value.length > 0)
+    ) {
+      setFormData((prev) => ({
+        ...prev,
+        attending: "yes",
+      }));
+    }
 
     // For other fields, just update normally
     setFormData((prev) => ({
@@ -127,7 +192,8 @@ const Form = () => {
     if (formData.attending === "yes") {
       if (
         formData.numberOfPeople <= 0 ||
-        formData.attendingDinner.some((option) => option.title === "None")
+        formData.attendingDinner.some((option) => option.title === "None") ||
+        formData.attendingDinner.length === 0
       ) {
         setErr(
           "Please select a valid number of people and attending dinner options."
@@ -156,9 +222,9 @@ const Form = () => {
       );
 
       if (response.data.message === "created") {
-        setErr("confirmInvitation has been sent successfully!");
+        alert("confirmInvitation has been sent successfully!");
       } else if (response.data.message === "updated") {
-        setErr("confirmInvitation has been updated successfully!");
+        alert("confirmInvitation has been updated successfully!");
       }
 
       setTimeout(() => {
@@ -193,6 +259,21 @@ const Form = () => {
         border: "2px solid #64ba8b",
         position: "relative",
         color: "#3d7556",
+        "&::-webkit-scrollbar": {
+          width: "8px", // Độ rộng scrollbar
+        },
+        "&::-webkit-scrollbar-track": {
+          background: "#f1f1f1", // Màu nền của track scrollbar
+          borderRadius: "10px",
+          margin: "6px",
+        },
+        "&::-webkit-scrollbar-thumb": {
+          background: "#64ba8b", // Màu của thanh cuộn
+          borderRadius: "10px",
+          "&:hover": {
+            background: "#3d7556", // Màu khi hover
+          },
+        },
       }}
     >
       <form onSubmit={handleSubmit}>
@@ -206,6 +287,7 @@ const Form = () => {
             required
             disabled
             sx={{
+              color: "#3d7556",
               "& .MuiInputBase-root": {
                 color: "#305b43", // Input text color
               },
@@ -324,6 +406,7 @@ const Form = () => {
                 control={
                   <Radio
                     sx={{
+                      color: "#3a875d",
                       "&.Mui-checked": {
                         color: "#3a875d", // Change color when selected
                       },
@@ -585,7 +668,7 @@ const Form = () => {
               ))}
             </RadioGroup>
           </FormControl>
-          <Typography sx={{ color: "#cd1212", paddingBottom: err ? 4 : 0 }}>
+          <Typography sx={{ color: "#cd1212", paddingBottom: err ? 2 : 0 }}>
             {err}
           </Typography>
         </Box>
@@ -606,7 +689,7 @@ const Form = () => {
             zIndex: 100,
           }}
         >
-          Submit
+          {guestData ? "Update" : "Submit"}
         </Button>
       </form>
     </Box>

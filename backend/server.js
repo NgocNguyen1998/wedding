@@ -90,6 +90,25 @@ app.post("/api/confirmInvitation", async (req, res) => {
       .json({ message: "Đã xảy ra lỗi khi lưu dữ liệu.", error: err });
   }
 });
+app.get("/api/getInvitation/:name", async (req, res) => {
+  const { name } = req.params;
+
+  try {
+    const rsvp = await confirmInvitation.findOne({ name });
+    console.log("rsvp: ", rsvp);
+
+    if (!rsvp) {
+      return res.status(404).json({ message: "Không tìm thấy lời mời." });
+    }
+
+    res.status(200).json({ message: "success", data: rsvp });
+  } catch (err) {
+    console.error("Lỗi khi lấy dữ liệu:", err);
+    res
+      .status(500)
+      .json({ message: "Đã xảy ra lỗi khi lấy dữ liệu.", error: err });
+  }
+});
 
 // Khởi động server
 const PORT = process.env.PORT || 5003;
