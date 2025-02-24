@@ -38,9 +38,9 @@ const FewWords = () => {
           sx={{
             fontStyle: "italic",
             fontWeight: "bold",
-            textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+            textShadow: "1px 1px 2px rgba(242, 12, 12, 0.3)",
             letterSpacing: 1,
-            fontSize: "45px",
+            fontSize: "35px",
             fontFamily: "EB Garamond, serif",
             color: "#8D644D",
           }}
@@ -67,8 +67,9 @@ const FewWords = () => {
           variant="body1"
           sx={{
             color: "#557c70",
-            fontSize: isMobile ? "14px" : "18px",
+            fontSize: isMobile ? "16px" : "20px",
             fontFamily: "EB Garamond, serif",
+            //filter: "brightness(0.75) contrast(1.5)",
           }}
         >
           Dear beloved friends and family,
@@ -77,8 +78,9 @@ const FewWords = () => {
           variant="body1"
           sx={{
             color: "#557c70",
-            fontSize: isMobile ? "14px" : "18px",
+            fontSize: isMobile ? "16px" : "20px",
             fontFamily: "EB Garamond, serif",
+            //filter: "brightness(0.75) contrast(1.5)",
           }}
         >
           Life is a collection of unforgettable moments, and our special day
@@ -90,8 +92,9 @@ const FewWords = () => {
           variant="body1"
           sx={{
             color: "#557c70",
-            fontSize: isMobile ? "14px" : "18px",
+            fontSize: isMobile ? "16px" : "20px",
             fontFamily: "EB Garamond, serif",
+            // filter: "brightness(0.75) contrast(1.5)",
           }}
         >
           Your presence and blessings are not just our joy, but also a sacred
@@ -104,8 +107,9 @@ const FewWords = () => {
           paragraph
           sx={{
             color: "#557c70",
-            fontSize: isMobile ? "14px" : "18px",
+            fontSize: isMobile ? "16px" : "20px",
             fontFamily: "EB Garamond, serif",
+            // filter: "brightness(0.75) contrast(1.5)",
           }}
         >
           From the bottom of our hearts, we sincerely thank you and look forward

@@ -49,7 +49,13 @@ const Invitations = () => {
       setShowFullBride(false);
     }
   };
-
+  // Effect để reset showFullGroom và showFullBride khi selected thay đổi
+  React.useEffect(() => {
+    if (selected) {
+      setShowFullGroom(false);
+      setShowFullBride(false);
+    }
+  }, [selected]); // Chạy lại effect khi selected thay đổi
   return (
     <Box
       sx={{
@@ -133,7 +139,7 @@ const Invitations = () => {
           justifyContent: "center", // Canh giữa theo chiều ngang
           alignItems: "center", // Canh giữa theo chiều dọc
           width: "100%",
-          maxWidth: 990,
+          maxWidth: 980,
           gap: 2, // Tạo khoảng cách giữa hai ảnh
           flexDirection: { xs: "column", sm: "row" }, // Chuyển sang cột trên màn hình nhỏ
         }}
@@ -143,7 +149,7 @@ const Invitations = () => {
           <Box
             sx={{
               position: "relative",
-              width: isMobile ? "90%" : "55%",
+              width: isMobile ? "95%" : "55%",
             }}
           >
             <img
@@ -249,7 +255,7 @@ const Invitations = () => {
             >
               <Typography
                 sx={{
-                  fontSize: isMobile ? "12px" : "15px",
+                  fontSize: isMobile ? "15px" : "18px",
                   fontStyle: "italic",
                   opacity: 0.8,
                   fontFamily: "EB Garamond, sans-serif",
@@ -397,144 +403,97 @@ const Invitations = () => {
                 left: "50%",
                 transform: "translate(-50%, 0%)",
                 width: "100%", // Đảm bảo hình gần full ảnh
+                height: "100%",
                 textAlign: "center",
               }}
             >
-              {selected ? (
-                <motion.img
-                  src={"/imgs/DSC00540.webp"} // Sử dụng dấu nháy ngược đúng cách
-                  alt="Extra"
-                  whileHover={{ scale: 1.05 }} // Hiệu ứng phóng to khi hover
-                  transition={{ duration: 0.3 }} // Thời gian chuyển đổi hiệu ứng
-                  style={{
-                    width: !showFullGroom
-                      ? isMobile
-                        ? "67%"
-                        : "55%"
-                      : isMobile
-                      ? "45%"
-                      : "40%",
-                    height: !showFullGroom
-                      ? isMobile
-                        ? "320px"
-                        : "325px"
-                      : isMobile
-                      ? "200px"
-                      : "220px",
-                    borderRadius: 10,
-                    objectFit: "cover", // Giữ hình không bị méo
-                  }}
-                />
-              ) : (
-                <motion.img
-                  src={"/imgs/DSC00590.webp"} // Sử dụng dấu nháy ngược đúng cách
-                  alt="Extra"
-                  whileHover={{ scale: 1.05 }} // Hiệu ứng phóng to khi hover
-                  transition={{ duration: 0.3 }} // Thời gian chuyển đổi hiệu ứng
-                  style={{
-                    width: !showFullBride
-                      ? isMobile
-                        ? "67%"
-                        : "55%"
-                      : isMobile
-                      ? "45%"
-                      : "40%",
-                    height: !showFullBride
-                      ? isMobile
-                        ? "320px"
-                        : "325px"
-                      : isMobile
-                      ? "200px"
-                      : "220px",
-                    borderRadius: 10,
-                    objectFit: "cover", // Giữ hình không bị méo
-                  }}
-                />
-              )}
+              <motion.img
+                src={selected ? "/imgs/DSC00540.webp" : "/imgs/DSC00590.webp"}
+                alt={selected ? "Chan Dung Chu ReRe" : "Chan Dung Co DauDau"}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+                style={{
+                  width: isMobile
+                    ? (selected ? showFullGroom : showFullBride)
+                      ? "45%" // If full is shown, reduce size
+                      : "45%" // Default size when not full
+                    : "47%", // Fixed size for larger screens
+                  height: isMobile
+                    ? (selected ? showFullGroom : showFullBride)
+                      ? "45%" // If full is shown, reduce height
+                      : "45%" // Default height when not full
+                    : "47%", // Fixed height for larger screens
+                  borderRadius: 10,
+                  objectFit: "cover",
+                  opacity: showFullGroom || showFullBride ? 0.25 : 1,
+                }}
+              />
             </Box>
 
             {/* Đoạn chữ bên dưới ảnh mới */}
-            {selected ? (
-              <Box
-                ref={textRef}
-                sx={{
-                  position: "absolute",
-                  top: !showFullGroom
-                    ? isMobile
-                      ? "67%"
-                      : "60%"
-                    : isMobile
-                    ? "44%"
-                    : "44%", // Đẩy chữ xuống dưới hình
-                  left: "50%",
-                  transform: "translate(-50%, 0%)",
-                  width: "80%",
-                  textAlign: "center",
-                  color: "#557c70",
-                  fontSize: isMobile ? 15 : 16,
-                  fontFamily: "EB Garamond, serif",
+            <Box
+              ref={textRef}
+              sx={{
+                position: "absolute",
+                top: isMobile
+                  ? (selected ? showFullGroom : showFullBride)
+                    ? "10%"
+                    : "55%"
+                  : (selected ? showFullGroom : showFullBride)
+                  ? "10%"
+                  : "57%",
+                left: "50%",
+                transform: "translate(-50%, 0%)",
+                width: "80%",
+                textAlign: "center",
+                color: selected ? "#557c70" : "#D81B60",
+                fontSize: isMobile ? 16 : 18,
+                fontFamily: "EB Garamond, serif",
+                //filter: "brightness(0.75) contrast(1.5)",
+              }}
+            >
+              <p
+                onClick={() => {
+                  // Thay đổi trạng thái của Groom/Bride sau khi reset
+                  if (selected) {
+                    setShowFullGroom(!showFullGroom); // Chuyển trạng thái của Groom
+                  } else {
+                    setShowFullBride(!showFullBride); // Chuyển trạng thái của Bride
+                  }
+                }}
+                style={{ cursor: "pointer", userSelect: "none" }}
+              >
+                {(selected ? showFullGroom : showFullBride)
+                  ? selected
+                    ? groomText
+                    : brideText
+                  : `${(selected ? groomText : brideText).substring(
+                      0,
+                      200
+                    )}...`}
+                <span style={{ color: "#c1b565", fontWeight: "bold" }}>
+                  {selected
+                    ? showFullGroom
+                      ? " read less"
+                      : " read more"
+                    : showFullBride
+                    ? " read less"
+                    : " read more"}
+                </span>
+              </p>
+
+              <b
+                style={{
+                  color: "#8D644D",
+                  filter: "brightness(1) contrast(1)",
+                  fontFamily: "Oooh Baby",
+                  fontSize: isMobile ? 17 : 20,
                 }}
               >
-                <>
-                  <p
-                    onClick={() => setShowFullGroom(!showFullGroom)}
-                    style={{ cursor: "pointer", userSelect: "none" }}
-                  >
-                    {showFullGroom
-                      ? groomText
-                      : `${groomText.substring(0, 200)}...`}
-                    <span style={{ color: "#c1b565", fontWeight: "bold" }}>
-                      {showFullGroom ? " read less" : " read more"}
-                    </span>
-                  </p>
-                  <b>
-                    A steadfast Taurus combined with a fiery Aries – a love that
-                    is not only enduring but also full of excitement!
-                  </b>
-                </>
-              </Box>
-            ) : (
-              <Box
-                ref={textRef}
-                sx={{
-                  position: "absolute",
-                  top: !showFullBride
-                    ? isMobile
-                      ? "67%"
-                      : "60%"
-                    : isMobile
-                    ? "44%"
-                    : "44%", // Đẩy chữ xuống dưới hình
-                  left: "50%",
-                  transform: "translate(-50%, 0%)",
-                  width: "80%",
-                  textAlign: "center",
-                  color: "#557c70",
-                  fontSize: isMobile ? 15 : 16,
-                  fontFamily: "EB Garamond, serif",
-                }}
-              >
-                <>
-                  <p
-                    onClick={() => setShowFullBride(!showFullBride)}
-                    style={{ cursor: "pointer", userSelect: "none" }}
-                  >
-                    {showFullBride
-                      ? brideText
-                      : `${brideText.substring(0, 200)}...`}
-                    <span style={{ color: "#c1b565", fontWeight: "bold" }}>
-                      {showFullBride ? " read less" : " read more"}
-                    </span>
-                  </p>
-                  <p>
-                    <b>
-                      A steadfast Taurus combined with a fiery Aries – a love
-                      that is not only enduring but also full of excitement!
-                    </b>
-                  </p>
-                </>
-              </Box>
-            )}
+                A steadfast Taurus combined with a fiery Aries – a love that is
+                not only enduring but also full of excitement!
+              </b>
+            </Box>
           </Box>
         ) : null}
       </Box>

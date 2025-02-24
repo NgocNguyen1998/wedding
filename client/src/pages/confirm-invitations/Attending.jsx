@@ -17,7 +17,7 @@ const Attending = (props) => {
     >
       <Box
         sx={{
-          width: "100%",
+          width: "70%",
           maxWidth: "1000px",
           display: "flex",
           justifyContent: "center",
@@ -28,21 +28,28 @@ const Attending = (props) => {
         }}
       >
         <Typography
+          variant="h4"
+          color="#9d6d39"
+          gutterBottom
           sx={{
-            color: "#8D644D",
+            fontStyle: "italic",
             fontWeight: "bold",
-            fontSize: "45px",
+            textShadow: "1px 1px 2px rgba(242, 12, 12, 0.3)",
+            letterSpacing: 1,
+            fontSize: "35px",
             fontFamily: "EB Garamond, serif",
+            color: "#8D644D",
           }}
         >
-          Wedding Attending
+          <b>Wedding Attending</b>
         </Typography>
         <Typography
           sx={{
             color: "#557c70",
-            fontSize: isMobile ? "14px" : "18px",
+            fontSize: isMobile ? "16px" : "20px",
             fontStyle: "italic",
             fontFamily: "EB Garamond, serif",
+            //filter: "brightness(0.75) contrast(1.5)",
           }}
         >
           The wedding will be even more special and meaningful with your
@@ -60,7 +67,7 @@ const Attending = (props) => {
           padding: 4,
           width: "70%", // Thiết lập chiều rộng cố định
           textAlign: "center",
-          // maxWidth: "1000px", // Đặt giới hạn chiều rộng tối đa
+          maxWidth: "1000px", // Đặt giới hạn chiều rộng tối đa
           margin: "0 auto", // Căn giữa theo chiều ngang
         }}
       >
@@ -75,9 +82,9 @@ const Attending = (props) => {
             transition: { duration: 0.3 },
           }}
           sx={{
-            width: isMobile ? "109%" : "60%",
-            maxWidth: "470px",
-            height: "590px",
+            width: isMobile ? "109%" : "46%",
+            maxWidth: "460px",
+            height: "580px",
             borderRadius: 4,
             position: "relative",
             overflow: "hidden",

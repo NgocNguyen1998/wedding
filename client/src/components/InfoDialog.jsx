@@ -58,10 +58,16 @@ const InfoDialog = ({ open, handleClose }) => {
       onClose={handleClose}
       maxWidth="xs"
       fullWidth
-      sx={{ maxWidth: "540px", margin: "auto" }}
+      sx={{ maxWidth: "540px", margin: "auto", borderRadius: 5 }} // Đặt bo góc cho Dialog }}
     >
       <DialogTitle
-        sx={{ textAlign: "center", fontSize: 20, fontWeight: "bold" }}
+        sx={{
+          textAlign: "center",
+          fontSize: 20,
+          fontWeight: "bold",
+          fontFamily: "EB Garamond, serif",
+          color: "#2303f3",
+        }}
       >
         Information
         <IconButton
@@ -74,7 +80,17 @@ const InfoDialog = ({ open, handleClose }) => {
       </DialogTitle>
 
       <DialogContent sx={{ textAlign: "center", padding: 2 }}>
-        <Typography variant="body2" gutterBottom marginBottom={2}>
+        <Typography
+          variant="body2"
+          gutterBottom
+          marginBottom={2}
+          sx={{
+            fontFamily: "'Oooh Baby', cursive", // Chọn font chữ tùy ý ở đây
+            //fontStyle: "italic", // Bạn cũng có thể thêm kiểu chữ như in nghiêng nếu muốn
+            fontSize: "18px", // Đặt kích thước chữ nếu cần thiết
+            color: "#8D644D", // Màu sắc của chữ
+          }}
+        >
           The couple sincerely thanks everyone for their love ♥
         </Typography>
 
@@ -87,15 +103,15 @@ const InfoDialog = ({ open, handleClose }) => {
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
-            marginTop: 3,
+            marginTop: 2,
           }}
         >
           <Typography
             variant="body2"
             fontWeight="bold"
             mb={2}
-            color="#e07a7a"
-            fontSize={16}
+            color="#2d00f4"
+            fontSize="20px"
           >
             {selectedLabel}
           </Typography>
@@ -105,8 +121,8 @@ const InfoDialog = ({ open, handleClose }) => {
               src={selectedAccount.qr}
               alt="img"
               style={{
-                width: "50%",
-                height: "50%",
+                width: "35%",
+                height: "35%",
                 objectFit: "cover",
                 borderRadius: "4%",
               }}
@@ -132,8 +148,9 @@ const InfoDialog = ({ open, handleClose }) => {
                   variant="h6"
                   sx={{
                     fontSize: "15px",
-                    color: "#060606",
+                    color: "#000000",
                     textDecoration: "none",
+                    fontFamily: "EB Garamond, serif",
                   }}
                   component="a"
                   href={`tel:${selectedAccount.account}`}
@@ -181,11 +198,12 @@ const InfoDialog = ({ open, handleClose }) => {
                     variant="h6"
                     sx={{
                       fontSize: "15px",
+                      fontFamily: "EB Garamond, serif",
                       color: " #060606",
                       textDecoration: "none",
                       cursor: "pointer",
                       ":hover": {
-                        color: "#045fe7",
+                        color: "#0b07fd",
                       },
                     }}
                     component="a"
@@ -238,7 +256,7 @@ const InfoDialog = ({ open, handleClose }) => {
                     variant="body2"
                     sx={{
                       textDecoration: "none",
-                      fontSize: "14px",
+                      fontFamily: "EB Garamond, serif",
                       textAlign: "left",
                       //   display: "inline-flex",
                       alignItems: "center",

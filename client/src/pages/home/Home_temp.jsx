@@ -11,25 +11,37 @@ const Home = () => {
   const [searchParams] = useSearchParams();
   const name = searchParams.get("name");
   const lowerName = name?.toLowerCase();
-  const guest = guests.find((g) => g.Guest_Code.toLowerCase() === lowerName);
+  const guest = guests.find((g) => g.Guest_Name.toLowerCase() === lowerName);
 
   //const aspectRatio = 530 / 400;
   const [dimensions, setDimensions] = useState({ width: 400, height: 530 });
-
+  const [viewportHeight, setViewportHeight] = useState(
+    window.visualViewport?.height || window.innerHeight
+  );
   useEffect(() => {
     const updateSize = () => {
+      const viewportHeight =
+        window.visualViewport?.height || window.innerHeight;
       const maxWidth = 0.95 * window.innerWidth;
-      const maxHeight = 0.8 * window.innerHeight;
+      const maxHeight = 0.8 * viewportHeight;
       const scale = Math.min(maxWidth / 400, maxHeight / 530);
+
       setDimensions({
         width: scale * 400,
         height: scale * 530,
       });
+
+      setViewportHeight(viewportHeight); // Cập nhật chiều cao của viewport thực tế
     };
 
     updateSize();
     window.addEventListener("resize", updateSize);
-    return () => window.removeEventListener("resize", updateSize);
+    window.visualViewport?.addEventListener("resize", updateSize);
+
+    return () => {
+      window.removeEventListener("resize", updateSize);
+      window.visualViewport?.removeEventListener("resize", updateSize);
+    };
   }, []);
 
   if (name && !guest) {
@@ -51,9 +63,10 @@ const Home = () => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        height: "100vh",
+        height: viewportHeight, // Dùng chiều cao thực tế
         backgroundColor: "#f5f5f5",
         overflow: "hidden",
+        position: "relative", // Để căn chỉnh lại vị trí chính xác
       }}
     >
       {/* Card Invitation */}
@@ -98,15 +111,17 @@ const Home = () => {
             whiteSpace: "normal",
             //wordBreak: "break-word",
 
-            fontSize: "min(1.5vw, 8vh, 3rem)", // Mặc định
+            fontSize: "clamp(15px, 5vw, 25px)", // Mặc định
             "@media (max-width: 600px)": {
-              fontSize: "min(5vw, 10vh, 3rem)", // Tăng cỡ chữ trên mobile
+              fontSize: "clamp(15px, 7vw, 40px)", // Tăng cỡ chữ trên mobile
             },
             lineHeight: 1.1, // Giữ khoảng cách dòng nhỏ gọn
           }}
         >
           <span style={{ marginRight: "0.3em" }}>Cordially Invited: </span>
-          <span style={{}}>{`${name ? guest.Guest_Name : "Guest"}`}</span>
+          <span style={{}}>{`${
+            name ? guest.name : "Vo Chong Anh Canh (Synopsys)"
+          }`}</span>
         </Box>
       </Card>
 
@@ -119,7 +134,7 @@ const Home = () => {
           gap: 1.5,
           width: dimensions.width,
           position: "absolute",
-          bottom: "2.5%", // Cách đáy màn hình 5%
+          bottom: "calc(2.5% + env(safe-area-inset-bottom))", // Đảm bảo không bị che khuất trên mobile
         }}
       >
         <Button
