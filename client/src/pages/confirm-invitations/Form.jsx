@@ -295,12 +295,11 @@ const Form = () => {
             required
             disabled
             sx={{
-              color: "#3d7556",
               "& .MuiInputBase-root": {
                 color: "#305b43", // Input text color
               },
               "& .MuiInputLabel-root": {
-                color: "#3a875d", // Label text color
+                color: "#3a875d !important", // Label text color
                 fontWeight: "600",
                 fontSize: "16px",
               },

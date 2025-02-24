@@ -39,36 +39,56 @@ const Header = () => {
           Happy Wedding
         </Typography>
 
-        <Typography
-          variant="h4"
-          sx={{
-            color: "#fe6688",
-            textShadow: "1px 1px 2px rgba(255, 255, 255, 0.978)",
-            fontFamily: "'Mr De Haviland', cursive",
-            mt: 6,
-            textAlign: "left",
-            fontStyle: "italic",
-            fontSize: isMobile ? "55px" : "6rem",
-            letterSpacing: 2,
-          }}
-        >
-          Trung Nam
-        </Typography>
-        <Typography
-          variant="h4"
-          sx={{
-            color: "#fe6688",
-            textShadow: "1px 1px 2px rgba(255, 255, 255, 0.978)",
-            fontFamily: "'Mr De Haviland', cursive",
-            my: 2,
-            textAlign: "right",
-            fontStyle: "italic",
-            fontSize: isMobile ? "55px" : "6rem",
-            letterSpacing: 2,
-          }}
-        >
-          Nguyen Ngoc
-        </Typography>
+        <Box>
+          {" "}
+          <Typography
+            variant="h4"
+            sx={{
+              color: "#fe6688",
+              textShadow: "1px 1px 2px rgba(255, 255, 255, 0.978)",
+              fontFamily: "'Mr De Haviland', cursive",
+              mt: 4,
+              textAlign: "left",
+              fontStyle: "italic",
+              fontSize: isMobile ? "55px" : "5rem",
+              letterSpacing: 2,
+              lineHeight: 0.5,
+            }}
+          >
+            Trung Nam
+          </Typography>
+          {/* Wedding Rings Image */}
+          {!isMobile && (
+            <img
+              src="/imgs/ring.webp"
+              alt="Wedding Rings"
+              style={{
+                // position: "absolute",
+                // top: "35%",
+                width: isMobile ? "90px" : "120px",
+                maxHeight: "80vh ",
+                // left: isMobile ? "45%" : "49%",
+                // transform: "translateX(-50%)",
+                lineHeight: "50%",
+              }}
+            />
+          )}
+          <Typography
+            variant="h4"
+            sx={{
+              color: "#fe6688",
+              textShadow: "1px 1px 2px rgba(255, 255, 255, 0.978)",
+              fontFamily: "'Mr De Haviland', cursive",
+              my: 2,
+              textAlign: "right",
+              fontStyle: "italic",
+              fontSize: isMobile ? "55px" : "5rem",
+              letterSpacing: 2,
+            }}
+          >
+            Nguyen Ngoc
+          </Typography>
+        </Box>
 
         <Typography
           variant="body1"
@@ -105,22 +125,6 @@ const Header = () => {
           Together, we weave a love story filled with romance.
         </Typography>
       </Box>
-
-      {/* Wedding Rings Image */}
-      {!isMobile && (
-        <img
-          src="/imgs/ring.webp"
-          alt="Wedding Rings"
-          style={{
-            position: "absolute",
-            top: "35%",
-            width: isMobile ? "90px" : "120px",
-            maxHeight: "80vh ",
-            left: isMobile ? "45%" : "49%",
-            transform: "translateX(-50%)",
-          }}
-        />
-      )}
 
       {/* Decorative Leaves and Flowers */}
       <img
