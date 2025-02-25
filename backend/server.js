@@ -1,4 +1,4 @@
-require("dotenv").config({ path: ".env.server" });
+require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -44,6 +44,7 @@ app.post("/api/confirmInvitation", async (req, res) => {
     attending,
     departure_time,
     returning_time,
+    message,
   } = req.body;
 
   try {
@@ -59,6 +60,7 @@ app.post("/api/confirmInvitation", async (req, res) => {
       existingRSVP.attending = attending;
       existingRSVP.departure_time = departure_time;
       existingRSVP.returning_time = returning_time;
+      existingRSVP.message = message;
 
       await existingRSVP.save();
       res.status(200).json({
@@ -77,6 +79,7 @@ app.post("/api/confirmInvitation", async (req, res) => {
         attending,
         departure_time,
         returning_time,
+        message,
       });
 
       await newRSVP.save();

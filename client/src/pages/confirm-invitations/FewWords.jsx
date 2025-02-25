@@ -54,10 +54,10 @@ const FewWords = () => {
           fontStyle="italic"
           sx={{
             py: 4,
-            color: "#e888e5",
+            color: "#f54df0",
             fontFamily: "'Oooh Baby', cursive",
             filter: "brightness(1.1) contrast(1.2)",
-            textShadow: "1px 1px 2px #4e4d4d",
+            textShadow: "1px 1px 2px #e52626",
             fontSize: isMobile ? "18px" : "25px",
           }}
         >

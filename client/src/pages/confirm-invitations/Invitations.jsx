@@ -255,7 +255,7 @@ const Invitations = () => {
             >
               <Typography
                 sx={{
-                  fontSize: isMobile ? "15px" : "18px",
+                  fontSize: isMobile ? "15px" : "16px",
                   fontStyle: "italic",
                   opacity: 0.8,
                   fontFamily: "EB Garamond, sans-serif",
@@ -263,10 +263,10 @@ const Invitations = () => {
                 }}
               >
                 {isSide
-                  ? "Hamlet 2, Long Thuan Commune, Thu Thua District, Long An Province, Vietnam"
+                  ? "Haml 2, Long Thuan, Thu Thua Dist, Long An Prov, Vietnam"
                   : isSide_Groom
-                  ? "Hamlet 2, Long Thuan Commune, Thu Thua District, Long An Province, Vietnam"
-                  : "Minh Tan Hamlet, Tan Tien Commune, Dong Phu District, Binh Phuoc Province, Vietnam"}
+                  ? "Haml 2, Long Thuan, Thu Thua Dist, Long An Prov, Vietnam"
+                  : "Minh Tan Haml, Tan Tien, Dong Phu Dist, Binh Phuoc Prov, Vietnam"}
                 <a
                   href={
                     isSide
@@ -304,7 +304,7 @@ const Invitations = () => {
 
         {/* Chỉ hiển thị hình ảnh Groom nếu không phải là mobile hoặc nếu là mobile và muốn hiển thị */}
         {!isMobile || (isMobile && true) ? (
-          <Box sx={{ position: "relative", width: isMobile ? "90%" : "55%" }}>
+          <Box sx={{ position: "relative", width: isMobile ? "95%" : "55%" }}>
             <img
               src="/imgs/Background_Gioithieu.webp"
               alt="Groom"
@@ -408,8 +408,12 @@ const Invitations = () => {
               }}
             >
               <motion.img
-                src={selected ? "/imgs/DSC00540.webp" : "/imgs/DSC00590.webp"}
-                alt={selected ? "Chan Dung Chu ReRe" : "Chan Dung Co DauDau"}
+                src={
+                  selected
+                    ? "/imgs/ChanDung/DSC00540.webp"
+                    : "/imgs/ChanDung/DSC00590.webp"
+                }
+                alt={selected ? "Chan Dung Chu Re" : "Chan Dung Co Dau"}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.3 }}
                 style={{

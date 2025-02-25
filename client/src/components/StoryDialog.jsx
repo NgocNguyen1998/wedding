@@ -13,7 +13,7 @@ const StoryDialog = ({ open, handleClose, text }) => {
     <Dialog
       open={open}
       onClose={handleClose}
-      maxWidth="xs"
+      maxWidth="95%"
       fullWidth
       sx={{
         maxWidth: "540px",
@@ -61,7 +61,7 @@ const StoryDialog = ({ open, handleClose, text }) => {
           marginBottom={2}
           sx={{
             color: "#0c0d0d",
-            fontSize: 16,
+            fontSize: "clamp(14px,2vw,25px)",
             fontFamily: "EB Garamond, serif",
           }}
         >

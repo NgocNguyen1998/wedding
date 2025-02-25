@@ -11,7 +11,7 @@ const Home = () => {
   const [searchParams] = useSearchParams();
   const name = searchParams.get("name");
   const lowerName = name?.toLowerCase();
-  const guest = guests.find((g) => g.Guest_Name.toLowerCase() === lowerName);
+  const guest = guests.find((g) => g.Guest_Code.toLowerCase() === lowerName);
 
   //const aspectRatio = 530 / 400;
   const [dimensions, setDimensions] = useState({ width: 400, height: 530 });
@@ -119,9 +119,7 @@ const Home = () => {
           }}
         >
           <span style={{ marginRight: "0.3em" }}>Cordially Invited: </span>
-          <span style={{}}>{`${
-            name ? guest.name : "Vo Chong Anh Canh (Synopsys)"
-          }`}</span>
+          <span style={{}}>{`${name ? guest.Guest_Name : "Guest"}`}</span>
         </Box>
       </Card>
 

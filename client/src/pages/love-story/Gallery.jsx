@@ -12,18 +12,70 @@ import { Button, Box, useMediaQuery, useTheme } from "@mui/material";
 
 const imageList = [
   {
-    src: "https://images.unsplash.com/photo-1608481337062-4093bf3ed404?auto=format&fit=crop&w=1600&q=80",
-    thumb:
-      "https://images.unsplash.com/photo-1608481337062-4093bf3ed404?auto=format&fit=crop&w=240&q=80",
-    title: "Massimiliano Morosinotto",
-    location: "Tre Cime di Lavaredo, Italia",
+    src: "/imgs/Gallery/DSC00189.webp",
+    thumb: "/imgs/Gallery/DSC00189.webp",
+    title: "Ngày Nắng Bên Nhau",
+    location: "Ngân Hàng Nhà Nước Việt Nam",
   },
   {
-    src: "https://images.unsplash.com/photo-1605973029521-8154da591bd7?auto=format&fit=crop&w=1600&q=80",
-    thumb:
-      "https://images.unsplash.com/photo-1605973029521-8154da591bd7?auto=format&fit=crop&w=240&q=80",
-    title: "Sascha Bosshard",
-    location: "Pizol, Mels, Schweiz",
+    src: "/imgs/Gallery/DSC00368.webp",
+    thumb: "/imgs/Gallery/DSC00368.webp",
+    title: "Ánh Mắt Đầu Tiên",
+    location: "Dreams",
+  },
+  {
+    src: "/imgs/Gallery/DSC00323.webp",
+    thumb: "/imgs/Gallery/DSC00323.webp",
+    title: "Mãi Mãi Bên Nhau",
+    location: "Dreams",
+  },
+  {
+    src: "/imgs/Gallery/DSC00167.webp",
+    thumb: "/imgs/Gallery/DSC00167.webp",
+    title: "Lướt Qua Đời Nhau",
+    location: "Dreams",
+  },
+  {
+    src: "/imgs/Gallery/DSC00361.webp",
+    thumb: "/imgs/Gallery/DSC00361.webp",
+    title: "Nắm Tay Nhau Thật Chặt",
+    location: "Dreams",
+  },
+  {
+    src: "/imgs/Gallery/DSC00654.webp",
+    thumb: "/imgs/Gallery/DSC00654.webp",
+    title: "Nàng Công Chúa Của Anh",
+    location: "Dreams",
+  },
+  {
+    src: "/imgs/Gallery/DSC00743.webp",
+    thumb: "/imgs/Gallery/DSC00743.webp",
+    title: "Ngôi Nhà Và Những Ước Mơ",
+    location: "Dreams",
+  },
+  {
+    src: "/imgs/Gallery/DSC00817.webp",
+    thumb: "/imgs/Gallery/DSC00817.webp",
+    title: "Trong Vòng Tay Anh",
+    location: "Dreams",
+  },
+  {
+    src: "/imgs/Gallery/DSC00790.webp",
+    thumb: "/imgs/Gallery/DSC00790.webp",
+    title: "Nàng Thơ",
+    location: "Dreams",
+  },
+  {
+    src: "/imgs/Gallery/DSC00696.webp",
+    thumb: "/imgs/Gallery/DSC00696.webp",
+    title: "Lời Hẹn Ước",
+    location: "Dreams",
+  },
+  {
+    src: "/imgs/Gallery/DSC00111.webp",
+    thumb: "/imgs/Gallery/DSC00111.webp",
+    title: "Lối Nhỏ, Tình To",
+    location: "Ngân Hàng Nhà Nước Việt Nam",
   },
 ];
 

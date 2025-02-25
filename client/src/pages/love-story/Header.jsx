@@ -1,4 +1,5 @@
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import React, { useEffect, useState } from "react";
 
 const Header = () => {
   const theme = useTheme();
@@ -7,7 +8,7 @@ const Header = () => {
     <Box
       sx={{
         position: "relative",
-        height: "100vh",
+        height: "100dvh",
         backgroundImage: "url('/imgs/Bia_Love_Story.webp')",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -33,7 +34,9 @@ const Header = () => {
             fontFamily: "Corinthia, cursive",
             color: "#0d6d5f",
             paddingTop: 5,
-            fontSize: isMobile ? 35 : 85,
+            fontSize: isMobile
+              ? "clamp(45px,5vw,150px)"
+              : "clamp(55px,5vw,100px)",
           }}
         >
           Happy Wedding
@@ -45,12 +48,16 @@ const Header = () => {
             variant="h4"
             sx={{
               color: "#fe6688",
+              paddingLeft: isMobile ? 0 : "4vw",
+              paddingTop: isMobile ? "10vh" : "5vh",
               textShadow: "1px 1px 2px rgba(255, 255, 255, 0.978)",
               fontFamily: "'Mr De Haviland', cursive",
               mt: 4,
               textAlign: "left",
               fontStyle: "italic",
-              fontSize: isMobile ? "55px" : "5rem",
+              fontSize: isMobile
+                ? "clamp(35px,12vw,300px) "
+                : "clamp(55px,5vw,150px)",
               letterSpacing: 2,
               lineHeight: 0.5,
             }}
@@ -58,31 +65,34 @@ const Header = () => {
             Trung Nam
           </Typography>
           {/* Wedding Rings Image */}
-          {!isMobile && (
-            <img
-              src="/imgs/ring.webp"
-              alt="Wedding Rings"
-              style={{
-                // position: "absolute",
-                // top: "35%",
-                width: isMobile ? "90px" : "120px",
-                maxHeight: "80vh ",
-                // left: isMobile ? "45%" : "49%",
-                // transform: "translateX(-50%)",
-                lineHeight: "50%",
-              }}
-            />
-          )}
+          <img
+            src="/imgs/ring.webp"
+            alt="Wedding Rings"
+            style={{
+              // position: "absolute",
+              // top: "35%",
+              width: isMobile ? "60px" : "120px",
+              maxHeight: "80vh ",
+              // left: isMobile ? "45%" : "49%",
+              // transform: "translateX(-50%)",
+              lineHeight: "50%",
+              paddingTop: isMobile ? "2vh" : "2vh",
+            }}
+          />
           <Typography
             variant="h4"
             sx={{
               color: "#fe6688",
+              paddingRight: isMobile ? 0 : "4vw",
+              paddingTop: isMobile ? "0vh" : "2vh",
               textShadow: "1px 1px 2px rgba(255, 255, 255, 0.978)",
               fontFamily: "'Mr De Haviland', cursive",
               my: 2,
               textAlign: "right",
               fontStyle: "italic",
-              fontSize: isMobile ? "55px" : "5rem",
+              fontSize: isMobile
+                ? "clamp(35px,12vw,300px) "
+                : "clamp(55px,5vw,150px)",
               letterSpacing: 2,
             }}
           >
@@ -93,8 +103,10 @@ const Header = () => {
         <Typography
           variant="body1"
           sx={{
-            fontSize: isMobile ? 16 : 23,
-            mt: 6,
+            fontSize: isMobile
+              ? "clamp(10px,4vw,30px)"
+              : "clamp(15px,1.2vw,50px)",
+            mt: 8,
             color: "#694148",
             fontFamily: "'Oooh Baby', cursive",
             fontWeight: "500",
@@ -112,7 +124,9 @@ const Header = () => {
         <Typography
           variant="body2"
           sx={{
-            fontSize: isMobile ? 16 : 23,
+            fontSize: isMobile
+              ? "clamp(10px,4vw,30px)"
+              : "clamp(15px,1.2vw,50px)",
             mt: 6,
             color: "#694148",
             fontFamily: "'Oooh Baby', cursive",
@@ -134,7 +148,7 @@ const Header = () => {
           position: "absolute",
           top: "10%",
           left: "5%",
-          width: isMobile ? "40px" : "80px",
+          width: isMobile ? "50px" : "80px",
         }}
       />
       <img

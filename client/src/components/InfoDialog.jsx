@@ -29,13 +29,13 @@ const InfoDialog = ({ open, handleClose }) => {
 
   const accounts = {
     GROOM: {
-      qr: "/imgs/DSC00540.webp",
+      qr: "/imgs/ChanDung/DSC00540.webp",
       account: "0334424479",
       address: "Hamlet 2, Long Thuan, Thu Thua, Long An",
       zalo: "https://tinyurl.com/3nhxb6tp",
     },
     BRIDE: {
-      qr: "/imgs/DSC00450.webp",
+      qr: "/imgs/ChanDung/DSC00590.webp",
       account: "0988508139",
       address: "Minh Tan Hamlet, Tan Tien, Dong Phu, Binh Phuoc",
       zalo: "https://tinyurl.com/yck87cu4",

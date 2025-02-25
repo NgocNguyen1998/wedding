@@ -81,6 +81,7 @@ const Form = () => {
     attending: "",
     departure_time: "",
     returning_time: "",
+    message: "",
   });
   useEffect(() => {
     if (guestData) {
@@ -96,6 +97,7 @@ const Form = () => {
         attending: guestData.attending || prev.attending,
         departure_time: guestData.departure_time || prev.departure_time,
         returning_time: guestData.returning_time || prev.returning_time,
+        message: guestData.message || prev.message,
       }));
     }
   }, [guestData]);
@@ -258,12 +260,15 @@ const Form = () => {
   return (
     <Box
       sx={{
-        maxHeight: "555px",
+        maxHeight: "640px",
         overflowY: "scroll",
         padding: 2,
         backgroundColor: "#ecdbdb",
-        width: isMobile ? "100%" : "42%",
-        borderRadius: 4,
+        width: isMobile ? "95%" : "55%",
+        boxSizing: "border-box",
+        justifyContent: "center",
+        position: "relative",
+        borderRadius: 2,
         border: "2px solid #64ba8b",
         position: "relative",
         color: "#3d7556",
@@ -271,7 +276,7 @@ const Form = () => {
           width: "8px", // Độ rộng scrollbar
         },
         "&::-webkit-scrollbar-track": {
-          background: "#f1f1f1", // Màu nền của track scrollbar
+          background: "#f1f1f13a", // Màu nền của track scrollbar
           borderRadius: "10px",
           margin: "6px",
         },
@@ -675,6 +680,41 @@ const Form = () => {
               ))}
             </RadioGroup>
           </FormControl>
+          <TextField
+            label={`Wishes for the ${guest.Friend}`}
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            fullWidth
+            multiline
+            minRows={1}
+            maxRows={5}
+            sx={{
+              "& .MuiOutlinedInput-root": {
+                "&:hover fieldset": {
+                  borderColor: "#3a875d", // Change the border color on hover
+                },
+                "&.Mui-focused fieldset": {
+                  borderColor: "#3a875d", // Change the border color when focused
+                },
+              },
+              "& .MuiInputBase-root": {
+                color: "#305b43",
+              },
+              "& .MuiInputLabel-root": {
+                color: "#3a875d", // Label text color
+                fontWeight: "600",
+                fontSize: "16px",
+              },
+              "& .MuiInputBase-input": {
+                color: "#3d7556 !important", // Input field text color (if needed)
+                fontSize: "15px",
+              },
+              "& .MuiFormHelperText-root": {
+                color: "#3d7556", // Helper text color (if present)
+              },
+            }}
+          />
           <Typography sx={{ color: "#cd1212", paddingBottom: err ? 2 : 0 }}>
             {err}
           </Typography>

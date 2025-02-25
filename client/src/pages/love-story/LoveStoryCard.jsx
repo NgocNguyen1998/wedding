@@ -88,7 +88,9 @@ const LoveStoryCard = ({ imgDate, imgMain, text }) => {
           />
           <Typography
             sx={{
-              fontSize: isMobile ? "14px" : "16px",
+              fontSize: isMobile
+                ? "clamp(12px,3.5vw,20px)"
+                : "clamp(18px,1.2vw,25px)",
               color: "#557c70",
               fontFamily: "EB Garamond, serif",
               position: "absolute",
@@ -97,7 +99,7 @@ const LoveStoryCard = ({ imgDate, imgMain, text }) => {
               width: "80%",
             }}
           >
-            {text.slice(0, isMobile ? 64 : 110)} {"..."}
+            {text.slice(0, isMobile ? 64 : 100)} {"..."}
           </Typography>
           {/* Read More (Absolute lên hình thứ 3) */}
           {/* <Box

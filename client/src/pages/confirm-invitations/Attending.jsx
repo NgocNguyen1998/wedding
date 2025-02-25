@@ -64,11 +64,14 @@ const Attending = (props) => {
           justifyContent: "center",
           alignItems: "center",
           gap: 2,
-          padding: 4,
-          width: "70%", // Thiết lập chiều rộng cố định
+          //padding: 2,
+          paddingTop: 4,
+          width: "100%", // Thiết lập chiều rộng cố định
           textAlign: "center",
-          maxWidth: "1000px", // Đặt giới hạn chiều rộng tối đa
+          //maxWidth: "1000px", // Đặt giới hạn chiều rộng tối đa
+          maxWidth: 980,
           margin: "0 auto", // Căn giữa theo chiều ngang
+          boxSizing: "border-box",
         }}
       >
         {/* Form */}
@@ -82,13 +85,13 @@ const Attending = (props) => {
             transition: { duration: 0.3 },
           }}
           sx={{
-            width: isMobile ? "109%" : "46%",
-            maxWidth: "460px",
-            height: "580px",
-            borderRadius: 4,
+            width: isMobile ? "95%" : "55%",
+            //maxWidth: "480px",
+            height: "640px",
+            borderRadius: 2,
             position: "relative",
             overflow: "hidden",
-            backgroundImage: "url(./imgs/DSC00590.webp)",
+            backgroundImage: "url(./imgs/ChanDung/DSC00737.webp)",
             backgroundSize: "cover",
             backgroundPosition: "center",
 
@@ -99,8 +102,8 @@ const Attending = (props) => {
               left: 0,
               width: "100%",
               height: "100%",
-              background: "rgba(0, 0, 0, 0.01)",
-              backdropFilter: "blur(1px)",
+              background: "rgba(247, 163, 163, 0.2)",
+              //backdropFilter: "blur(1px)",
               borderRadius: 4,
             },
           }}
