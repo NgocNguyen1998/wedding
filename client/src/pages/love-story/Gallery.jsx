@@ -168,47 +168,15 @@ const Gallery = () => {
   const firstImageRef = useRef(null);
 
   useEffect(() => {
-    console.log("Gallery status:", showGallery);
-
-    if (showGallery) {
-      // Mở LightGallery
-      if (firstImageRef.current) {
-        console.log("Clicking first image...");
-        firstImageRef.current.click();
-      }
-
-      // Chặn scroll khi mở Gallery
-      document.documentElement.style.overflow = "hidden";
-      document.addEventListener(
-        "touchmove",
-        (event) => event.preventDefault(),
-        { passive: false }
-      );
-    } else {
-      // Bật lại scroll khi đóng Gallery
-      document.documentElement.style.overflow = "auto";
-      document.removeEventListener("touchmove", (event) =>
-        event.preventDefault()
-      );
+    if (showGallery && firstImageRef.current) {
+      firstImageRef.current.click();
     }
-
-    return () => {
-      // Cleanup khi unmount
-      document.documentElement.style.overflow = "auto";
-      document.removeEventListener("touchmove", (event) =>
-        event.preventDefault()
-      );
-    };
   }, [showGallery]);
-
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   /*************  ✨ Codeium Command 🌟  *************/
-  const handleCloseGallery = () => {
-    console.log("Closing gallery...");
-    setTimeout(() => setShowGallery(false), 200); // Delay để tránh lỗi
-  };
+  const handleCloseGallery = () => setShowGallery(false);
 
   return (
     <Box>
