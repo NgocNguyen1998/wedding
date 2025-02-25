@@ -218,7 +218,8 @@ const Gallery = () => {
         <Box>
           {/* Hình ảnh chỉ hiển thị khi showGallery là true */}
           <LightGallery
-            plugins={[lgZoom, lgThumbnail]}
+            plugins={[lgThumbnail]}
+            download={false}
             elementClassNames="gallery"
             onAfterClose={handleCloseGallery}
           >

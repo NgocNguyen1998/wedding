@@ -106,7 +106,7 @@ const SliderStory = ({ isMobile }) => {
     >
       <Slider {...settings}>
         <LoveStoryCard
-          imgDate="/imgs/Giaioan1.webp"
+          imgDate="/imgs/Giaidoan1.webp"
           imgMain="/imgs/Story/GiaiDoan1.webp"
           text='On the "fateful" night of April 9, 2017, under the starry sky, he and she met for the first time. Amid the lively atmosphere and cheerful laughter, they unexpectedly started talking as if they had known each other for a long time. And the most magical part? It was also her 19th birthday! Perhaps the universe sent a clear message that day: "Your birthday gift this year is... a boyfriend!"'
         />
