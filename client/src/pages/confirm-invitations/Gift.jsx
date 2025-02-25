@@ -50,7 +50,7 @@ const Gift = () => {
           Wedding Gift
         </Typography>
         <motion.img
-          src="./imgs/Weddinggift.webp"
+          src="./imgs/gift.png"
           alt="gift"
           animate={{
             scale: [1, 1.2, 1], // Make the text grow and shrink

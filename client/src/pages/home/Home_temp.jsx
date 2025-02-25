@@ -81,7 +81,7 @@ const Home = () => {
       >
         <CardMedia
           component="img"
-          image="/imgs/BiaThiep.webp"
+          image="/imgs/Bia_Thiep.png"
           alt="Wedding Invitation"
           sx={{ objectFit: "cover", width: "100%", height: "100%" }}
         />
@@ -175,7 +175,7 @@ const Home = () => {
             }}
           >
             <img
-              src="/imgs/logo.webp"
+              src="/imgs/logo.png"
               alt="Logo"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />

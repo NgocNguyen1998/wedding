@@ -55,6 +55,10 @@ const Invitations = () => {
       setShowFullGroom(false);
       setShowFullBride(false);
     }
+    if (!selected) {
+      setShowFullGroom(false);
+      setShowFullBride(false);
+    }
   }, [selected]); // Chạy lại effect khi selected thay đổi
   return (
     <Box
@@ -66,7 +70,7 @@ const Invitations = () => {
         gap: 2,
         paddingTop: 4,
         paddingBottom: 4,
-        backgroundImage: "url('/imgs/background_Confirm.webp')",
+        backgroundImage: "url('/imgs/background_Confirm.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -155,10 +159,10 @@ const Invitations = () => {
             <img
               src={
                 isSide
-                  ? "/imgs/NhaTrai_LongAn.webp"
+                  ? "/imgs/NhaTrai_LongAn.jpg"
                   : isSide_Groom
-                  ? "/imgs/NhaGai_LongAn.webp"
-                  : "/imgs/NhaGai_BinhPhuoc.webp"
+                  ? "/imgs/NhaGai_LongAn.jpg"
+                  : "/imgs/NhaGai_BinhPhuoc.jpg"
               }
               alt="Bride"
               style={{
@@ -263,17 +267,30 @@ const Invitations = () => {
                 }}
               >
                 {isSide
-                  ? "Haml 2, Long Thuan, Thu Thua Dist, Long An Prov, Vietnam"
-                  : isSide_Groom
-                  ? "Haml 2, Long Thuan, Thu Thua Dist, Long An Prov, Vietnam"
-                  : "Minh Tan Haml, Tan Tien, Dong Phu Dist, Binh Phuoc Prov, Vietnam"}
+                  ? side
+                    ? isSide_Groom
+                      ? "Haml 2, Long Thuan, Thu Thua Dist, Long An Prov, Vietnam"
+                      : "Minh Tan Haml, Tan Tien, Dong Phu Dist, Binh Phuoc Prov, Vietnam"
+                    : "Haml 2, Long Thuan, Thu Thua Dist, Long An Prov, Vietnam"
+                  : side
+                  ? "Minh Tan Haml, Tan Tien, Dong Phu Dist, Binh Phuoc Prov, Vietnam"
+                  : !isSide_Groom
+                  ? "Minh Tan Haml, Tan Tien, Dong Phu Dist, Binh Phuoc Prov, Vietnam"
+                  : "Haml 2, Long Thuan, Thu Thua Dist, Long An Prov, Vietnam"}
+
                 <a
                   href={
                     isSide
-                      ? "https://maps.app.goo.gl/22zVbbXrDiAmT6NB6?g_st=com.google.maps.preview.copy"
-                      : isSide_Groom
-                      ? "https://maps.app.goo.gl/22zVbbXrDiAmT6NB6?g_st=com.google.maps.preview.copy"
-                      : "https://maps.app.goo.gl/JvBjfF66bAd8xr3T6"
+                      ? side
+                        ? isSide_Groom
+                          ? "https://maps.app.goo.gl/22zVbbXrDiAmT6NB6?g_st=com.google.maps.preview.copy"
+                          : "https://maps.app.goo.gl/JvBjfF66bAd8xr3T6"
+                        : "https://maps.app.goo.gl/22zVbbXrDiAmT6NB6?g_st=com.google.maps.preview.copy"
+                      : side
+                      ? "https://maps.app.goo.gl/JvBjfF66bAd8xr3T6"
+                      : !isSide_Groom
+                      ? "https://maps.app.goo.gl/JvBjfF66bAd8xr3T6"
+                      : "https://maps.app.goo.gl/22zVbbXrDiAmT6NB6?g_st=com.google.maps.preview.copy"
                   }
                   target="_blank"
                   rel="noopener noreferrer"
@@ -306,7 +323,7 @@ const Invitations = () => {
         {!isMobile || (isMobile && true) ? (
           <Box sx={{ position: "relative", width: isMobile ? "95%" : "55%" }}>
             <img
-              src="/imgs/Background_Gioithieu.webp"
+              src="/imgs/Background_Gioithieu.jpg"
               alt="Groom"
               style={{
                 width: "100%",
@@ -410,8 +427,8 @@ const Invitations = () => {
               <motion.img
                 src={
                   selected
-                    ? "/imgs/ChanDung/DSC00540.webp"
-                    : "/imgs/ChanDung/DSC00590.webp"
+                    ? "/imgs/ChanDung/DSC00540.jpg"
+                    : "/imgs/ChanDung/DSC00590.jpg"
                 }
                 alt={selected ? "Chan Dung Chu Re" : "Chan Dung Co Dau"}
                 whileHover={{ scale: 1.05 }}
@@ -429,6 +446,7 @@ const Invitations = () => {
                     : "47%", // Fixed height for larger screens
                   borderRadius: 10,
                   objectFit: "cover",
+                  //opacity: showFullGroom ? 0.25 : 1,
                   opacity: showFullGroom || showFullBride ? 0.25 : 1,
                 }}
               />

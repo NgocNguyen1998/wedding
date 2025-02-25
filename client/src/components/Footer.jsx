@@ -10,7 +10,7 @@ const Footer = () => {
         width: "100%",
         height: isMobile ? 120 : 140,
         position: "relative",
-        backgroundImage: "url('/imgs/Footer.webp')",
+        backgroundImage: "url('/imgs/Footer.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         display: "flex",
@@ -39,7 +39,7 @@ const Footer = () => {
         }}
       >
         <img
-          src="/imgs/logo.webp"
+          src="/imgs/logo.png"
           alt="Logo"
           style={{
             width: isMobile ? 70 : 110,

@@ -8,7 +8,7 @@ const OurStory = (props) => {
     <Box
       id={props.id}
       sx={{
-        backgroundImage: "url('/imgs/Background_Love_Story.webp')",
+        backgroundImage: "url('/imgs/Background_Love_Story.png')",
         // height: "95vh",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -26,7 +26,9 @@ const OurStory = (props) => {
           fontWeight: "bold",
           textShadow: "1px 1px 2px rgba(242, 12, 12, 0.3)",
           letterSpacing: 1,
-          fontSize: "35px",
+          fontSize: isMobile
+            ? "clamp(25px,10vw,35px)"
+            : "clamp(35px,15vw,50px)",
           fontFamily: "EB Garamond, serif",
           color: "#8D644D",
         }}

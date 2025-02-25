@@ -9,7 +9,7 @@ const Attending = (props) => {
   return (
     <Box
       sx={{
-        backgroundImage: "url('/imgs/background_Confirm.webp')",
+        backgroundImage: "url('/imgs/Background_Confirm.png')",
         paddingTop: 4,
         paddingBottom: 4,
       }}
@@ -91,7 +91,7 @@ const Attending = (props) => {
             borderRadius: 2,
             position: "relative",
             overflow: "hidden",
-            backgroundImage: "url(./imgs/ChanDung/DSC00737.webp)",
+            backgroundImage: "url(./imgs/ChanDung/DSC00737.jpg)",
             backgroundSize: "cover",
             backgroundPosition: "center",
             boxSizing: "border-box",

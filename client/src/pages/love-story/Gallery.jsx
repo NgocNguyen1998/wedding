@@ -11,153 +11,153 @@ import { Button, Box, useMediaQuery, useTheme } from "@mui/material";
 
 const imageList = [
   {
-    src: "/imgs/Gallery/DSC00189.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00189.webp",
+    src: "/imgs/Gallery/DSC00189.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00189.jpg",
     title: "Our Sunshine Days 💛",
     location: "State Bank of Vietnam - DSC00189",
   },
   {
-    src: "/imgs/Gallery/DSC00017.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00017.webp",
+    src: "/imgs/Gallery/DSC00017.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00017.jpg",
     title: "Together, Wherever Life Takes Us 🌍💑",
     location: "State Bank of Vietnam - DSC00017",
   },
   {
-    src: "/imgs/Gallery/DSC00118.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00118.webp",
+    src: "/imgs/Gallery/DSC00118.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00118.jpg",
     title: "Our Shared Moments of Joy 😊💑",
     location: "State Bank of Vietnam - DSC00118",
   },
 
   {
-    src: "/imgs/Gallery/DSC00368.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00368.webp",
+    src: "/imgs/Gallery/DSC00368.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00368.jpg",
     title: "The First Look of Love ❤️",
     location: "The Dreams Wedding Venue - DSC00368",
   },
   {
-    src: "/imgs/Gallery/DSC00323.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00323.webp",
+    src: "/imgs/Gallery/DSC00323.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00323.jpg",
     title: "Together, Always and Forever 💑",
     location: "The Dreams Wedding Venue - DSC00323",
   },
   {
-    src: "/imgs/Gallery/DSC00361.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00361.webp",
+    src: "/imgs/Gallery/DSC00361.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00361.jpg",
     title: "Holding Hands, Holding Hearts 💑",
     location: "The Dreams Wedding Venue - DSC00361",
   },
   {
-    src: "/imgs/Gallery/DSC00654.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00654.webp",
+    src: "/imgs/Gallery/DSC00654.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00654.jpg",
     title: "My One and Only Princess 👸",
     location: "The Dreams Wedding Venue - DSC00654",
   },
   {
-    src: "/imgs/Gallery/DSC00743.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00743.webp",
+    src: "/imgs/Gallery/DSC00743.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00743.jpg",
     title: "A House Full of The Dreams Wedding Venue 🏠",
     location: "The Dreams Wedding Venue - DSC00743",
   },
   {
-    src: "/imgs/Gallery/DSC00817.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00817.webp",
+    src: "/imgs/Gallery/DSC00817.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00817.jpg",
     title: "Safe in Your Embrace 🫶",
     location: "The Dreams Wedding Venue - DSC00817",
   },
   {
-    src: "/imgs/Gallery/DSC00790.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00790.webp",
+    src: "/imgs/Gallery/DSC00790.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00790.jpg",
     title: "The Poetry of My Heart 🌿",
     location: "The Dreams Wedding Venue - DSC00790",
   },
   {
-    src: "/imgs/Gallery/DSC00696.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00696.webp",
+    src: "/imgs/Gallery/DSC00696.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00696.jpg",
     title: "The Promise of Forever 🌟",
     location: "The Dreams Wedding Venue - DSC00696",
   },
   {
-    src: "/imgs/Gallery/DSC00111.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00111.webp",
+    src: "/imgs/Gallery/DSC00111.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00111.jpg",
     title: "A Tiny Lane, An Endless Love 🌸",
     location: "State Bank of Vietnam - DSC00111",
   },
   {
-    src: "/imgs/Gallery/DSC00590.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00590.webp",
+    src: "/imgs/Gallery/DSC00590.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00590.jpg",
     title: "A Moment of Pure Passion 💋",
     location: "The Dreams Wedding Venue - DSC00590",
   },
   {
-    src: "/imgs/Gallery/DSC00574.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00574.webp",
+    src: "/imgs/Gallery/DSC00574.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00574.jpg",
     title: "Eyes That Belong to Only Me 👀💖",
     location: "The Dreams Wedding Venue - DSC00574",
   },
   {
-    src: "/imgs/Gallery/DSC00450.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00450.webp",
+    src: "/imgs/Gallery/DSC00450.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00450.jpg",
     title: "Right Now, Only You and Me 🕰️",
     location: "The Dreams Wedding Venue - DSC00450",
   },
   {
-    src: "/imgs/Gallery/DSC00441.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00441.webp",
+    src: "/imgs/Gallery/DSC00441.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00441.jpg",
     title: "Together, We Step into Happines 🚪💖",
     location: "The Dreams Wedding Venue - DSC00441",
   },
   {
-    src: "/imgs/Gallery/DSC00540.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00540.webp",
+    src: "/imgs/Gallery/DSC00540.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00540.jpg",
     title: "Lost in Thoughts of You 💭",
     location: "The Dreams Wedding Venue - DSC00540",
   },
   {
-    src: "/imgs/Gallery/DSC00425.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00425.webp",
+    src: "/imgs/Gallery/DSC00425.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00425.jpg",
     title: "Our Day of Love 💍",
     location: "The Dreams Wedding Venue - DSC00425",
   },
   {
-    src: "/imgs/Gallery/DSC09773.webp",
-    thumb: "/imgs/Gallery/thumb/DSC09773.webp",
+    src: "/imgs/Gallery/DSC09773.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC09773.jpg",
     title: "Love Bridges Two Shores of Longing 🌉",
     location: "Bạch Đằng Wharf - DSC09773",
   },
   {
-    src: "/imgs/Gallery/DSC00961.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00961.webp",
+    src: "/imgs/Gallery/DSC00961.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00961.jpg",
     title: "A Fresh Beginning of Joy 🎉",
     location: "The Dreams Wedding Venue - DSC00961",
   },
   {
-    src: "/imgs/Gallery/DSC00919.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00919.webp",
+    src: "/imgs/Gallery/DSC00919.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00919.jpg",
     title: "A Fairytale Love: The Prince & The Princess 🏰",
     location: "The Dreams Wedding Venue - DSC00919",
   },
   {
-    src: "/imgs/Gallery/DSC00952.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00952.webp",
+    src: "/imgs/Gallery/DSC00952.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00952.jpg",
     title: "When Our Eyes Meet, Hearts Speak 💕",
     location: "The Dreams Wedding Venue - DSC00952",
   },
   {
-    src: "/imgs/Gallery/DSC00993.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00993.webp",
+    src: "/imgs/Gallery/DSC00993.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00993.jpg",
     title: "Hạnh A Journey of Love and Joy 🏞️",
     location: "The Dreams Wedding Venue - DSC00993",
   },
   {
-    src: "/imgs/Gallery/DSC00985.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00985.webp",
+    src: "/imgs/Gallery/DSC00985.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC00985.jpg",
     title: "A Little Secret, Just for Us 🔐",
     location: "The Dreams Wedding Venue - DSC00985",
   },
   {
-    src: "/imgs/Gallery/DSC09734.webp",
-    thumb: "/imgs/Gallery/thumb/DSC09734.webp",
+    src: "/imgs/Gallery/DSC09734.jpg",
+    thumb: "/imgs/Gallery/thumb/DSC09734.jpg",
     title: "True Love or Pure Affection? 🤔",
     location: "Bạch Đằng Wharf - DSC09734",
   },
@@ -168,15 +168,47 @@ const Gallery = () => {
   const firstImageRef = useRef(null);
 
   useEffect(() => {
-    if (showGallery && firstImageRef.current) {
-      firstImageRef.current.click();
+    console.log("Gallery status:", showGallery);
+
+    if (showGallery) {
+      // Mở LightGallery
+      if (firstImageRef.current) {
+        console.log("Clicking first image...");
+        firstImageRef.current.click();
+      }
+
+      // Chặn scroll khi mở Gallery
+      document.documentElement.style.overflow = "hidden";
+      document.addEventListener(
+        "touchmove",
+        (event) => event.preventDefault(),
+        { passive: false }
+      );
+    } else {
+      // Bật lại scroll khi đóng Gallery
+      document.documentElement.style.overflow = "auto";
+      document.removeEventListener("touchmove", (event) =>
+        event.preventDefault()
+      );
     }
+
+    return () => {
+      // Cleanup khi unmount
+      document.documentElement.style.overflow = "auto";
+      document.removeEventListener("touchmove", (event) =>
+        event.preventDefault()
+      );
+    };
   }, [showGallery]);
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   /*************  ✨ Codeium Command 🌟  *************/
-  const handleCloseGallery = () => setShowGallery(false);
+  const handleCloseGallery = () => {
+    console.log("Closing gallery...");
+    setTimeout(() => setShowGallery(false), 200); // Delay để tránh lỗi
+  };
 
   return (
     <Box>

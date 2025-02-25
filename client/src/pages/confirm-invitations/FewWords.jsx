@@ -9,7 +9,7 @@ const FewWords = () => {
         position: "relative", // Quan trọng để lớp phủ hoạt động
         paddingTop: 4,
         paddingBottom: 4,
-        backgroundImage: "url('/imgs/background_Thanks.webp')",
+        backgroundImage: "url('/imgs/Background_Thanks.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         "&::before": {

@@ -82,7 +82,7 @@ const LoveStoryCard = ({ imgDate, imgMain, text }) => {
           }}
         >
           <img
-            src="/imgs/textbox.webp"
+            src="/imgs/textbox.png"
             alt="Letter"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />

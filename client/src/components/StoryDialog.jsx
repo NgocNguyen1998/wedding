@@ -82,7 +82,7 @@ const StoryDialog = ({ open, handleClose, text }) => {
         }}
       >
         <img
-          src="/imgs/Hoa.webp"
+          src="/imgs/Hoa.png"
           alt="love story"
           style={{ width: "100%", height: "100%", objectFit: "contain" }}
         />
@@ -98,7 +98,7 @@ const StoryDialog = ({ open, handleClose, text }) => {
         }}
       >
         <img
-          src="/imgs/Hoa.webp"
+          src="/imgs/Hoa.png"
           alt="love story"
           style={{ width: "99%", height: "100%", objectFit: "contain" }}
         />

@@ -26,10 +26,10 @@ const LoveStory = () => {
   const guest = guests.find((g) => g.Guest_Code.toLowerCase() === lowerName);
   const [isPlaying, setIsPlaying] = useState(false); // Mặc định phát nhạc
 
-  const audioRef = useRef(new Audio("/music/Westlife-BeautifulinWhite.mp3"));
+  const audioRef = useRef(new Audio("/music/Westlife-BeautifulinWhite.mp3")); // Đảm bảo đúng đường dẫn
   useEffect(() => {
     const playMusic = () => {
-      audioRef.current.currentTime = 1; // Bắt đầu phát từ giây thứ 19
+      audioRef.current.currentTime = 19; // Bắt đầu phát từ giây thứ 19
       audioRef.current
         .play()
         .then(() => setIsPlaying(true))
@@ -52,7 +52,7 @@ const LoveStory = () => {
       } else {
         // Resume the music when the app comes back to the foreground
         if (audioRef.current.currentTime === 0) {
-          audioRef.current.currentTime = 1; // Đảm bảo nhạc phát từ giây thứ 19 nếu nó mới bắt đầu
+          audioRef.current.currentTime = 19; // Đảm bảo nhạc phát từ giây thứ 19 nếu nó mới bắt đầu
         }
         audioRef.current.play(); // Tiếp tục phát nhạc khi app trở lại foreground
         setIsPlaying(true); // Cập nhật trạng thái nhạc đang phát
@@ -79,7 +79,6 @@ const LoveStory = () => {
     }
     setIsPlaying(!isPlaying);
   };
-
   return (
     <>
       {/* Audio player (ẩn) */}

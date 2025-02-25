@@ -211,11 +211,17 @@ const Form = () => {
         );
         return;
       }
-      if (formData.departure_time === "") {
+      if (
+        formData.departure_time === "" &&
+        getFilteredDepartureTime(guest)?.length > 0
+      ) {
         setErr("Please select a valid departure time.");
         return;
       }
-      if (formData.returning_time === "") {
+      if (
+        formData.returning_time === "" &&
+        getFilteredReturnTime(guest)?.length > 0
+      ) {
         setErr("Please select a valid returning time.");
         return;
       }
@@ -260,7 +266,7 @@ const Form = () => {
     availableParties.push({ title: "None" });
     return availableParties;
   };
-  const getFilteredDepatureTime = (guest) => {
+  const getFilteredDepartureTime = (guest) => {
     let availableDeparture = departure
       .filter((departure) => guest[departure.key] === "Yes")
       .map((departure) => ({ title: departure.title }));
@@ -470,7 +476,7 @@ const Form = () => {
             </RadioGroup>
           </FormControl>
           <TextField
-            label="How many will be attending?(1 means only you)"
+            label="How many will be attending?(1 to 3)"
             type="number"
             name="numberOfPeople"
             value={formData.numberOfPeople}
@@ -595,7 +601,7 @@ const Form = () => {
               />
             )}
           />
-          {getFilteredDepatureTime(guest)?.length > 0 && (
+          {getFilteredDepartureTime(guest)?.length > 0 && (
             <FormControl
               sx={{ paddingX: 1.8 }}
               disabled={formData.attending === "no"}
@@ -625,7 +631,7 @@ const Form = () => {
                   flexDirection: "row",
                 }}
               >
-                {getFilteredDepatureTime(guest).map((item) => (
+                {getFilteredDepartureTime(guest).map((item) => (
                   <FormControlLabel
                     key={item.key}
                     value={item.title}

@@ -9,7 +9,7 @@ const Header = () => {
       sx={{
         position: "relative",
         height: "100dvh",
-        backgroundImage: "url('/imgs/Bia_Love_Story.webp')",
+        backgroundImage: "url('/imgs/Bia_Love_Story.png')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         // display: "flex",
@@ -66,7 +66,7 @@ const Header = () => {
           </Typography>
           {/* Wedding Rings Image */}
           <img
-            src="/imgs/ring.webp"
+            src="/imgs/ring.png"
             alt="Wedding Rings"
             style={{
               // position: "absolute",
@@ -142,7 +142,7 @@ const Header = () => {
 
       {/* Decorative Leaves and Flowers */}
       <img
-        src="/imgs/Chiec_La.webp"
+        src="/imgs/Chiec_La.png"
         alt="Leaf 1"
         style={{
           position: "absolute",
@@ -152,7 +152,7 @@ const Header = () => {
         }}
       />
       <img
-        src="/imgs/La_Hoa.webp"
+        src="/imgs/La_Hoa.png"
         alt="Leaf 2"
         style={{
           position: "absolute",

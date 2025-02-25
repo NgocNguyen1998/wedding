@@ -5,52 +5,53 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import "lazysizes";
 const itemData = [
   {
-    img: "/imgs/Story/DSC00961.webp",
-    title: "Bed",
+    img: "/imgs/Story/DSC00961.jpg",
+    title: "Loading DSC00961",
   },
 
   {
-    img: "/imgs/Story/DSC09773.webp",
-    title: "Sink",
+    img: "/imgs/Story/DSC09773.jpg",
+    title: "Loading DSC09773",
   },
   {
-    img: "/imgs/Story/DSC00441.webp",
-    title: "Coffee table",
+    img: "/imgs/Story/DSC00441.jpg",
+    title: "Loading DSC00441",
   },
 
   {
-    img: "/imgs/Story/DSC00985.webp",
-    title: "Chairs",
+    img: "/imgs/Story/DSC00985.jpg",
+    title: "Loading DSC00985",
   },
   {
-    img: "/imgs/Story/DSC00696.webp",
-    title: "Storage",
+    img: "/imgs/Story/DSC00696.jpg",
+    title: "Loading DSC00696",
   },
   {
-    img: "/imgs/Story/DSC00705.webp",
-    title: "Coffee table",
+    img: "/imgs/Story/DSC00705.jpg",
+    title: "Loading DSC00705",
   },
   {
-    img: "/imgs/Story/DSC00952.webp",
-    title: "Doors",
+    img: "/imgs/Story/DSC00952.jpg",
+    title: "Loading DSC00952",
   },
   {
-    img: "/imgs/Story/DSC09682.webp",
-    title: "Blinds",
+    img: "/imgs/Story/DSC09682.jpg",
+    title: "Loading DSC09682",
   },
   {
-    img: "/imgs/Story/DSC00111.webp",
-    title: "Candle",
+    img: "/imgs/Story/DSC00111.jpg",
+    title: "Loading DSC00111",
   },
   {
-    img: "/imgs/Story/DSC00919.webp",
-    title: "Coffee",
+    img: "/imgs/Story/DSC00919.jpg",
+    title: "Loading DSC00919",
   },
   {
-    img: "/imgs/Story/DSC09734.webp",
-    title: "Kitchen",
+    img: "/imgs/Story/DSC09734.jpg",
+    title: "Loading DSC09734",
   },
 ];
 
@@ -86,7 +87,8 @@ const ImgList = () => {
               srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
               src={`${item.img}?w=248&fit=crop&auto=format`}
               alt={item.title}
-              loading="lazy"
+              //loading="lazy"
+              class="lazyload"
             />
           </ImageListItem>
         ))}

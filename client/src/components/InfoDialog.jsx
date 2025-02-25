@@ -29,13 +29,13 @@ const InfoDialog = ({ open, handleClose }) => {
 
   const accounts = {
     GROOM: {
-      qr: "/imgs/ChanDung/DSC00540.webp",
+      qr: "/imgs/ChanDung/DSC00540.jpg",
       account: "0334424479",
       address: "Hamlet 2, Long Thuan, Thu Thua, Long An",
       zalo: "https://tinyurl.com/3nhxb6tp",
     },
     BRIDE: {
-      qr: "/imgs/ChanDung/DSC00590.webp",
+      qr: "/imgs/ChanDung/DSC00590.jpg",
       account: "0988508139",
       address: "Minh Tan Hamlet, Tan Tien, Dong Phu, Binh Phuoc",
       zalo: "https://tinyurl.com/yck87cu4",
@@ -154,10 +154,10 @@ const InfoDialog = ({ open, handleClose }) => {
                 onMouseLeave={() => setHovered(false)}
               >
                 <img
-                  src="./imgs/phone.webp"
+                  src="./imgs/phone.png"
                   alt="phone"
-                  width="28px"
-                  height={"28px"}
+                  width="35px"
+                  height={"35px"}
                 />
                 <Typography
                   variant="h6"
@@ -190,11 +190,21 @@ const InfoDialog = ({ open, handleClose }) => {
               </Stack>
               {/* Zalo */}
               <Stack direction="row" alignItems="center" spacing={1}>
-                <img
-                  src="./imgs/zalo.webp"
-                  alt="zalo"
-                  width="28px"
-                  height={"28px"}
+                {/* Icon động từ ảnh */}
+                <motion.img
+                  src="./imgs/zalo.png"
+                  alt="Location Icon"
+                  animate={{ scale: [0.8, 1.2, 0.8] }} // Hiệu ứng to nhỏ
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }} // Lặp vô hạn
+                  style={{
+                    width: "29px", // Điều chỉnh kích thước ảnh
+                    height: "29px",
+                    cursor: "pointer",
+                  }}
                 />
                 <Typography
                   variant="h6"
@@ -251,9 +261,9 @@ const InfoDialog = ({ open, handleClose }) => {
                 <Stack direction="row" alignItems="center" spacing={1}>
                   {/* Icon động từ ảnh */}
                   <motion.img
-                    src="./imgs/ggmap.webp"
+                    src="./imgs/ggmap.png"
                     alt="Location Icon"
-                    animate={{ scale: [1, 1.4, 1] }} // Hiệu ứng to nhỏ
+                    animate={{ scale: [0.8, 1.2, 0.8] }} // Hiệu ứng to nhỏ
                     transition={{
                       duration: 1.5,
                       repeat: Infinity,

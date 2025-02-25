@@ -211,9 +211,9 @@ const Carousel = () => {
     >
       <Slider {...settings}>
         {[
-          "/imgs/Carousel/DSC00991.webp",
-          "/imgs/Carousel/DSC00441.webp",
-          "/imgs/Carousel/DSC00743.webp",
+          "/imgs/Carousel/DSC00991.jpg",
+          "/imgs/Carousel/DSC00441.jpg",
+          "/imgs/Carousel/DSC09773.jpg",
         ].map((img, index) => (
           <SlideItem
             key={index}
