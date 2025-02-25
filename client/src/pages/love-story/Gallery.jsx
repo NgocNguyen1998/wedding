@@ -29,12 +29,7 @@ const imageList = [
     title: "Niềm Vui Khi Ta Bên Nhau",
     location: "Ngân Hàng Nhà Nước Việt Nam",
   },
-  {
-    src: "/imgs/Gallery/DSC00189.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00189.webp",
-    title: "Dù Mệt Mỏi, Mình Vẫn Có Nhau",
-    location: "Ngân Hàng Nhà Nước Việt Nam",
-  },
+
   {
     src: "/imgs/Gallery/DSC00368.webp",
     thumb: "/imgs/Gallery/thumb/DSC00368.webp",
@@ -100,12 +95,6 @@ const imageList = [
     thumb: "/imgs/Gallery/thumb/DSC00574.webp",
     title: "Ánh Mắt Ấy, Dành Riêng Cho Anh",
     location: "Dreams",
-  },
-  {
-    src: "/imgs/Gallery/DSC09850.webp",
-    thumb: "/imgs/Gallery/thumb/DSC09850.webp",
-    title: "Bình Yên Bên Nhau",
-    location: "Ngân Hàng Nhà Nước Việt Nam",
   },
   {
     src: "/imgs/Gallery/DSC00450.webp",

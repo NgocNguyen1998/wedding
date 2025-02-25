@@ -277,6 +277,7 @@ const Form = () => {
   return (
     <Box
       sx={{
+        boxSizing: "border-box",
         maxHeight: "640px",
         overflowY: "scroll",
         padding: 2,

@@ -78,7 +78,7 @@ const BottomNavigate = ({ isPlaying, togglePlay }) => {
             setValue(newValue);
           }}
           sx={{
-            backgroundColor: "rgba(128, 128, 128, 0.7)", // Xám (gray) với độ mờ 70%
+            backgroundColor: "rgba(255, 255, 255, 0.552)", // Xám (gray) với độ mờ 70%
             backdropFilter: "blur(5px)", // Làm mờ nền phía sau
           }}
         >

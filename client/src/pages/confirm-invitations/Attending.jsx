@@ -85,7 +85,7 @@ const Attending = (props) => {
             transition: { duration: 0.3 },
           }}
           sx={{
-            width: isMobile ? "95%" : "55%",
+            width: isMobile ? "95%" : "56%",
             //maxWidth: "480px",
             height: "640px",
             borderRadius: 2,
@@ -94,6 +94,7 @@ const Attending = (props) => {
             backgroundImage: "url(./imgs/ChanDung/DSC00737.webp)",
             backgroundSize: "cover",
             backgroundPosition: "center",
+            boxSizing: "border-box",
 
             "&::before": {
               content: '""',
