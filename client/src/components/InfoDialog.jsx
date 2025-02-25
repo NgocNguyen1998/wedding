@@ -56,14 +56,28 @@ const InfoDialog = ({ open, handleClose }) => {
     <Dialog
       open={open}
       onClose={handleClose}
-      maxWidth="xs"
-      fullWidth
-      sx={{ maxWidth: "540px", margin: "auto", borderRadius: 5 }} // Đặt bo góc cho Dialog }}
+      maxWidth={false}
+      fullScreen
+      PaperProps={{
+        sx: {
+          backgroundColor: "#fffffff5", // Màu nền
+          backdropFilter: "blur(4px)",
+          borderRadius: 3, // Bo góc
+        },
+      }}
+      //fullWidth
+      sx={{
+        maxWidth: { xs: "95%", sm: "400px", md: "500px" },
+        maxHeight: { xs: "468px", sm: "500px", md: "600px" },
+        margin: "auto",
+        // borderRadius: 8,
+        // backgroundColor: "rgba(179, 179, 179, 0.415)",
+      }}
     >
       <DialogTitle
         sx={{
           textAlign: "center",
-          fontSize: 20,
+          fontSize: "clamp(18px, 2vw, 30px)",
           fontWeight: "bold",
           fontFamily: "EB Garamond, serif",
           color: "#2303f3",
@@ -87,8 +101,9 @@ const InfoDialog = ({ open, handleClose }) => {
           sx={{
             fontFamily: "'Oooh Baby', cursive", // Chọn font chữ tùy ý ở đây
             //fontStyle: "italic", // Bạn cũng có thể thêm kiểu chữ như in nghiêng nếu muốn
-            fontSize: "18px", // Đặt kích thước chữ nếu cần thiết
+            fontSize: "clamp(18px, 2vw, 30px)", // Đặt kích thước chữ nếu cần thiết
             color: "#8D644D", // Màu sắc của chữ
+            fontWeight: "bold",
           }}
         >
           The couple sincerely thanks everyone for their love ♥
@@ -121,8 +136,8 @@ const InfoDialog = ({ open, handleClose }) => {
               src={selectedAccount.qr}
               alt="img"
               style={{
-                width: "35%",
-                height: "35%",
+                width: "40%",
+                height: "40%",
                 objectFit: "cover",
                 borderRadius: "4%",
               }}

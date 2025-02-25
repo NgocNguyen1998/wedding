@@ -13,19 +13,23 @@ const StoryDialog = ({ open, handleClose, text }) => {
     <Dialog
       open={open}
       onClose={handleClose}
-      maxWidth="95%"
-      fullWidth
+      maxWidth={false}
+      fullScreen
+      PaperProps={{
+        sx: {
+          backgroundColor: "#ffffffc5", // Màu nền
+          backdropFilter: "blur(4px)",
+          borderRadius: 4, // Bo góc
+        },
+      }}
+      //fullWidth
       sx={{
-        maxWidth: "540px",
+        maxWidth: { xs: "95%", sm: "400px", md: "500px" },
+        maxHeight: { xs: "468px", sm: "500px", md: "600px" },
         margin: "auto",
         paddingY: 4,
-        // position: "relative",
-      }}
-      PaperProps={{
-        style: {
-          backgroundColor: "#fffff",
-          backdropFilter: "blur(4px)",
-        },
+        // borderRadius: 8,
+        // backgroundColor: "rgba(179, 179, 179, 0.415)",
       }}
       BackdropProps={{
         style: {

@@ -39,6 +39,13 @@ const GiftDialog = ({ open, handleClose }) => {
     <Dialog
       open={open}
       onClose={handleClose}
+      PaperProps={{
+        sx: {
+          backgroundColor: "#ffffffab", // Màu nền
+          backdropFilter: "blur(4px)",
+          borderRadius: 3, // Bo góc
+        },
+      }}
       maxWidth={false}
       fullScreen
       //fullWidth
@@ -46,7 +53,8 @@ const GiftDialog = ({ open, handleClose }) => {
         maxWidth: { xs: "95%", sm: "600px", md: "768px" },
         maxHeight: { xs: "468px", sm: "600px", md: "768px" },
         margin: "auto",
-        borderRadius: 8,
+        // borderRadius: 8,
+        // backgroundColor: "rgba(179, 179, 179, 0.415)",
       }}
     >
       <DialogTitle
@@ -87,7 +95,7 @@ const GiftDialog = ({ open, handleClose }) => {
                 mb={2}
                 mt={1}
                 color="#e07a7a"
-                fontSize={12}
+                fontSize={"clamp(15px, 2vw, 25px)"}
               >
                 {key === "GROOM" ? "For the Bride💖" : "For the Groom💙"}
               </Typography>
