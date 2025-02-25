@@ -257,6 +257,20 @@ const Form = () => {
     availableParties.push({ title: "None" });
     return availableParties;
   };
+  const getFilteredDepatureTime = (guest) => {
+    let availableDeparture = departure
+      .filter((departure) => guest[departure.key] === "Yes")
+      .map((departure) => ({ title: departure.title }));
+
+    return availableDeparture;
+  };
+  const getFilteredReturnTime = (guest) => {
+    let availableReturn = returning
+      .filter((returning) => guest[returning.key] === "Yes")
+      .map((returning) => ({ title: returning.title }));
+
+    return availableReturn;
+  };
   return (
     <Box
       sx={{
@@ -577,109 +591,113 @@ const Form = () => {
               />
             )}
           />
-          <FormControl
-            sx={{ paddingX: 1.8 }}
-            disabled={formData.attending === "no"}
-            // required
-          >
-            <FormLabel
-              id="demo-row-radio-buttons-group-label"
-              sx={{
-                textAlign: "left",
-                fontSize: 14,
-                color: "#3a875d", // Label text color
-                fontWeight: "600",
-              }}
+          {getFilteredDepatureTime(guest)?.length > 0 && (
+            <FormControl
+              sx={{ paddingX: 1.8 }}
+              disabled={formData.attending === "no"}
+              // required
             >
-              Which departure would you prefer?
-            </FormLabel>
+              <FormLabel
+                id="demo-row-radio-buttons-group-label"
+                sx={{
+                  textAlign: "left",
+                  fontSize: 14,
+                  color: "#3a875d", // Label text color
+                  fontWeight: "600",
+                }}
+              >
+                Which departure would you prefer?
+              </FormLabel>
 
-            <RadioGroup
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="departure_time"
-              value={formData.departure_time}
-              onChange={handleChange}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                flexDirection: "row",
-              }}
+              <RadioGroup
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="departure_time"
+                value={formData.departure_time}
+                onChange={handleChange}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "row",
+                }}
+              >
+                {getFilteredDepatureTime(guest).map((item) => (
+                  <FormControlLabel
+                    key={item.key}
+                    value={item.title}
+                    control={
+                      <Radio
+                        sx={{
+                          color: "#3a875d",
+                          "&.Mui-checked": {
+                            color: "#3a875d", // Change color when selected
+                          },
+                        }}
+                      />
+                    }
+                    label={item.title}
+                    sx={{
+                      "& .MuiTypography-root": { fontSize: "15px" }, // Target the label's typography
+                    }}
+                  />
+                ))}
+              </RadioGroup>
+            </FormControl>
+          )}
+          {getFilteredReturnTime(guest)?.length > 0 && (
+            <FormControl
+              sx={{ paddingX: 1.8 }}
+              disabled={formData.attending === "no"}
+              // required
             >
-              {departure.map((item) => (
-                <FormControlLabel
-                  key={item.key}
-                  value={item.title}
-                  control={
-                    <Radio
-                      sx={{
-                        color: "#3a875d",
-                        "&.Mui-checked": {
-                          color: "#3a875d", // Change color when selected
-                        },
-                      }}
-                    />
-                  }
-                  label={item.title}
-                  sx={{
-                    "& .MuiTypography-root": { fontSize: "15px" }, // Target the label's typography
-                  }}
-                />
-              ))}
-            </RadioGroup>
-          </FormControl>
-          <FormControl
-            sx={{ paddingX: 1.8 }}
-            disabled={formData.attending === "no"}
-            // required
-          >
-            <FormLabel
-              id="demo-row-radio-buttons-group-label"
-              sx={{
-                textAlign: "left",
-                fontSize: 14,
-                color: "#3a875d", // Label text color
-                fontWeight: "600",
-              }}
-            >
-              What time do you live to take the return?
-            </FormLabel>
+              <FormLabel
+                id="demo-row-radio-buttons-group-label"
+                sx={{
+                  textAlign: "left",
+                  fontSize: 14,
+                  color: "#3a875d", // Label text color
+                  fontWeight: "600",
+                }}
+              >
+                What time is the return?
+              </FormLabel>
 
-            <RadioGroup
-              row
-              aria-labelledby="demo-row-radio-buttons-group-label"
-              name="returning_time"
-              value={formData.returning_time}
-              onChange={handleChange}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                flexDirection: "row",
-                color: "#3a875d",
-              }}
-            >
-              {returning.map((item) => (
-                <FormControlLabel
-                  key={item.key}
-                  value={item.title}
-                  control={
-                    <Radio
-                      sx={{
-                        color: "#3a875d",
-                        "&.Mui-checked": {
-                          color: "#3a875d", // Change color when selected
-                        },
-                      }}
-                    />
-                  }
-                  label={item.title}
-                  sx={{
-                    "& .MuiTypography-root": { fontSize: "15px" }, // Target the label's typography
-                  }}
-                />
-              ))}
-            </RadioGroup>
-          </FormControl>
+              <RadioGroup
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="returning_time"
+                value={formData.returning_time}
+                onChange={handleChange}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "row",
+                  color: "#3a875d",
+                }}
+              >
+                {getFilteredReturnTime(guest).map((item) => (
+                  <FormControlLabel
+                    key={item.key}
+                    value={item.title}
+                    control={
+                      <Radio
+                        sx={{
+                          color: "#3a875d",
+                          "&.Mui-checked": {
+                            color: "#3a875d", // Change color when selected
+                          },
+                        }}
+                      />
+                    }
+                    label={item.title}
+                    sx={{
+                      "& .MuiTypography-root": { fontSize: "15px" }, // Target the label's typography
+                    }}
+                  />
+                ))}
+              </RadioGroup>
+            </FormControl>
+          )}
           <TextField
             label={`Wishes for the ${guest.Friend}`}
             name="message"

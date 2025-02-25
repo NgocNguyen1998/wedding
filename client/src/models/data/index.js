@@ -2,7 +2,7 @@ export const partiesData = [
   { key: "Party_1", title: "Bride side's Dinner (Mar 9th)" },
   { key: "Party_2", title: "Bride side's Wedding (Mar 10th)" },
   { key: "Party_3", title: "Groom side's Dinner (Mar 10th)" },
-  { key: "Party_4", title: "Bride side's Wedding (Mar 11th)" },
+  { key: "Party_4", title: "Groom side's Wedding (Mar 11th)" },
   { key: "None", title: "None" },
 ];
 
