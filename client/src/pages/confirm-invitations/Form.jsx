@@ -40,6 +40,7 @@ const Form = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const [err, setErr] = useState("");
+  const [buttonStatus, setButtonStatus] = useState("");
 
   useEffect(() => {
     if (!guest || !guest.Guest_Name) return; // Nếu không có guest, không gọi API
@@ -52,6 +53,7 @@ const Form = () => {
         const response = await axios.get(apiUrlWithParams);
 
         if (response.data?.data) {
+          setButtonStatus("update");
           setGuestData(response.data.data);
         } else {
           console.warn("⚠️ API không có dữ liệu hợp lệ:", response.data);
@@ -232,6 +234,7 @@ const Form = () => {
       );
 
       if (response.data.message === "created") {
+        setButtonStatus("update");
         alert("confirmInvitation has been sent successfully!");
       } else if (response.data.message === "updated") {
         alert("confirmInvitation has been updated successfully!");
@@ -754,7 +757,7 @@ const Form = () => {
             zIndex: 100,
           }}
         >
-          {guestData ? "Update" : "Submit"}
+          {buttonStatus === "update" ? "Update" : "Submit"}
         </Button>
       </form>
     </Box>

@@ -18,6 +18,24 @@ const imageList = [
     location: "Ngân Hàng Nhà Nước Việt Nam",
   },
   {
+    src: "/imgs/Gallery/DSC00017.webp",
+    thumb: "/imgs/Gallery/thumb/DSC00017.webp",
+    title: "Cùng Nhau Bên Mọi Nẻo Đường",
+    location: "Ngân Hàng Nhà Nước Việt Nam",
+  },
+  {
+    src: "/imgs/Gallery/DSC00118.webp",
+    thumb: "/imgs/Gallery/thumb/DSC00118.webp",
+    title: "Niềm Vui Khi Ta Bên Nhau",
+    location: "Ngân Hàng Nhà Nước Việt Nam",
+  },
+  {
+    src: "/imgs/Gallery/DSC00189.webp",
+    thumb: "/imgs/Gallery/thumb/DSC00189.webp",
+    title: "Dù Mệt Mỏi, Mình Vẫn Có Nhau",
+    location: "Ngân Hàng Nhà Nước Việt Nam",
+  },
+  {
     src: "/imgs/Gallery/DSC00368.webp",
     thumb: "/imgs/Gallery/thumb/DSC00368.webp",
     title: "Ánh Mắt Đầu Tiên",
@@ -27,12 +45,6 @@ const imageList = [
     src: "/imgs/Gallery/DSC00323.webp",
     thumb: "/imgs/Gallery/thumb/DSC00323.webp",
     title: "Mãi Mãi Bên Nhau",
-    location: "Dreams",
-  },
-  {
-    src: "/imgs/Gallery/DSC00167.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00167.webp",
-    title: "Lướt Qua Đời Nhau",
     location: "Dreams",
   },
   {
@@ -90,12 +102,6 @@ const imageList = [
     location: "Dreams",
   },
   {
-    src: "/imgs/Gallery/DSC00590.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00590.webp",
-    title: "Em Nhìn Lại, Khắc Ghi Khoảnh Khắc Này",
-    location: "Dreams",
-  },
-  {
     src: "/imgs/Gallery/DSC09850.webp",
     thumb: "/imgs/Gallery/thumb/DSC09850.webp",
     title: "Bình Yên Bên Nhau",
@@ -135,12 +141,6 @@ const imageList = [
     src: "/imgs/Gallery/DSC00961.webp",
     thumb: "/imgs/Gallery/thumb/DSC00961.webp",
     title: "Hạnh Phúc Mới",
-    location: "Dreams",
-  },
-  {
-    src: "/imgs/Gallery/DSC00952.webp",
-    thumb: "/imgs/Gallery/thumb/DSC00952.webp",
-    title: "Hoàng Tử Và Công Chúa",
     location: "Dreams",
   },
   {
